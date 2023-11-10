@@ -26,7 +26,7 @@ Then download the entire project with:
 
 ### OALIB
 
-*OPTIONAL : Modify the ***at/MakeFile*** in order to set your own compilation settings (add Krakel, use LLAPACK, configure CPU, ...).*\
+*OPTIONAL : Modify the ***at/MakeFile*** in order to set your own compilation settings (add Krakel, use LLAPACK, configure CPU, ...).*
 The acoustic toolbox from OALIB is in fortran, the installation is done with the following commands:
 
     mkdir /opt/build
@@ -36,13 +36,12 @@ The acoustic toolbox from OALIB is in fortran, the installation is done with the
     make all
     make install
 
-you may have to "sudo" some commands but avoid it if not necessary.\
-Add ***bin*** folder to your $PATH by editing your ***./profile***, ***./bashprofile*** or ***./bashrc*** and adding the following line:
+you may have to "sudo" some commands but avoid it if not necessary.
+Add ***bin*** folder to your ***$PATH*** by editing your ***./profile***, ***./bashprofile*** or ***./bashrc*** and adding the following line:
 
     export PATH="/opt/build/at/bin:$PATH"
 
-This allow python modules to find fortran executable files.
-
+This allow python modules to find fortran executable files.\
 *In Spyder or some other IDEs you may have to add:*
 
     os.environ['PATH'] = os.environ['PATH'].replace(':/opt/build/at/bin', '')+":/opt/build/at/bin"
@@ -58,7 +57,7 @@ or:
 
     pip3 install numpy scipy matplotlib pandas
 
-Add the ***pyat***, ***pyram***, ***utm*** and ***arlpy*** directories to your ***PYTHONPATH*** by adding:
+Add the ***pyat***, ***pyram***, ***utm*** and ***arlpy*** directories to your ***$PYTHONPATH*** by adding:
 
     export PYTHONPATH="<installationPath>/uAcoustics/python/arlpy:$PYTHONPATH"
     export PYTHONPATH="<installationPath>/uAcoustics/python/pyram:$PYTHONPATH"
@@ -66,7 +65,7 @@ Add the ***pyat***, ***pyram***, ***utm*** and ***arlpy*** directories to your *
     export PYTHONPATH="<installationPath>/uAcoustics/python/utm:$PYTHONPATH"
 
 to the end of your ***./profile***, ***./bashprofile*** or ***./bashrc*** file.\
-*For Spyder or IDEs you may have to add them to the IDE's PYTHONPATH.*
+*For Spyder or IDEs you may have to add them to the IDE's ***$PYTHONPATH***.*
 
 ## About
 
