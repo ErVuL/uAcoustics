@@ -5,28 +5,29 @@ Python/Linux underwater acoustics propagation models and toolbox using ***pyat**
 
 The following installation process is written for a debian based Linux OS. Tested under Debian 12 with built-in python 3.11.2.
 
-### DOWNLOAD
-
-Make an installation directory with :
-
-    mkdir <installationPath>
-    cd <installationPath>
-
-then download the entire project with:
-
-    git clone --recurse-submodules -j8 git@github.com:ErVuL/uAcoustics.git
-    cd uAcoustics
-
-### APT
+### Required APT
 
 Install some applications with the following command:
     
     sudo apt install texlive-base gfortran cmake 
 
-### OALIB AT
+### Download
+
+Make an installation directory with :
+
+    mkdir <installationPath>
+    cd <installationPath>
+    
+it will contains a local copy of the main python modules, and the source code of the oalib toolbox.
+then download the entire project with:
+
+    git clone --recurse-submodules -j8 git@github.com:ErVuL/uAcoustics.git
+    cd uAcoustics
+
+### OALIB
 
 *OPTIONAL : Modify the ***at/MakeFile*** in order to set your own compilation settings (add Krakel, use LLAPACK, configure CPU, ...).*\
-The acoustic toolbox from OALIB is in fortran, the code must be build and installed with the following commands:
+The acoustic toolbox from OALIB is in fortran, with the following commands:
 
     mkdir /opt/build
     cp -r oalib/at /opt/build
@@ -35,19 +36,20 @@ The acoustic toolbox from OALIB is in fortran, the code must be build and instal
     make all
     make install
 
-Add ***bin*** folder to your $PATH by editing your ***./profile***, ***./bashprofile*** or ***./bashrc*** ... and adding the following line:
+you may have to "sudo" some commands but avoid it if not necessary.\
+Add ***bin*** folder to your $PATH by editing your ***./profile***, ***./bashprofile*** or ***./bashrc*** and adding the following line:
 
     export PATH="/opt/build/at/bin:$PATH"
 
 This allow python modules to find fortran executable files.\
 
-*In Spyder or some other IDEs you may have to add:
+*In Spyder or some other IDEs you may have to add:*
 
     os.environ['PATH'] = os.environ['PATH'].replace(':/opt/build/at/bin', '')+":/opt/build/at/bin"
     
-at the beginning of your code to import the fortran binaries to your IDE's environment.*
+*at the beginning of your code to import the fortran binaries to your IDE's environment.*
 
-### PYTHON
+### Python
 
 Install some dependencies:
 
@@ -56,14 +58,15 @@ or:
 
     pip3 install numpy scipy matplotlib pandas
 
-Now you need to add the ***pyat***, ***pyram*** and ***arlpy*** folders to your ***PYTHONPATH*** by adding:
+Add the ***pyat***, ***pyram***, ***utm*** and ***arlpy*** directories to your ***PYTHONPATH*** by adding:
 
     export PYTHONPATH="<installationPath>/uAcoustics/python/arlpy:$PYTHONPATH"
     export PYTHONPATH="<installationPath>/uAcoustics/python/pyram:$PYTHONPATH"
     export PYTHONPATH="<installationPath>/uAcoustics/python/pyat:$PYTHONPATH"
     export PYTHONPATH="<installationPath>/uAcoustics/python/utm:$PYTHONPATH"
 
-For Spyder or IDEs you may have to add them to the IDE's PYTHONPATH.
+to the end of your ***./profile***, ***./bashprofile*** or ***./bashrc*** file.\
+*For Spyder or IDEs you may have to add them to the IDE's PYTHONPATH.*
 
 ## About
 
@@ -71,7 +74,7 @@ For Spyder or IDEs you may have to add them to the IDE's PYTHONPATH.
 
 Range dependant Acoustic Model is a Parabolic Equation solver.\
 Python adaptation of RAM v1.5.\
-Fork from https://github.com/marcuskd/pyram the 04/11/2023.
+Fork from https://github.com/marcuskd/pyram.
 
 ### OALIB AT
 
@@ -81,21 +84,23 @@ OALIB source code (fortran) written in the 80's and 90's. Contains:
   - SCOOTER: Finite element FFP code
   - SPARC: Time domain FFP code
 
-Fork from https://github.com/oalib-acoustics/Acoustics-Toolbox/tree/main the 04/11/2023.
-See also:\
-http://oalib.hlsresearch.com/AcousticsToolbox \
-https://oalib-acoustics.org/models-and-software/acoustics-toolbox/ 
+Fork from https://github.com/oalib-acoustics/Acoustics-Toolbox/tree/main.
 
 ### PYAT
 
 Python module used to interact with OALIB executable files.\
-Fork from https://github.com/hunterakins/pyat the 04/11/2023.
+Fork from https://github.com/hunterakins/pyat.
 
 ### ARLPY
 
 Python project also able to interact with bellhop.\
 It contains a lot of useful functions for underwater acoustic processing.\
-Fork from https://github.com/org-arl/arlpy the 05/11/2023.
+Fork from https://github.com/org-arl/arlpy.
+
+### UTM
+
+Bidirectional UTM-WGS84 converter for python.
+Fork from 
 
 ## Linked resources
 
