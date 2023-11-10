@@ -5,7 +5,7 @@ Python/Linux underwater acoustics propagation models and toolbox using ***pyat**
 
 The following installation process is written for a debian based Linux OS. Tested under Debian 12 with built-in python 3.11.2.
 
-### Download
+### DOWNLOAD
 
 Make an installation directory with :
 
@@ -17,7 +17,7 @@ then download the entire project with:
     git clone --recurse-submodules -j8 git@github.com:ErVuL/uAcoustics.git
     cd uAcoustics
 
-### Required APT
+### APT
 
 Install some applications with the following command:
     
