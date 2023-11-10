@@ -1,0 +1,12 @@
+[submodule "oalib/at"]
+	path = oalib/at
+	url = git@github.com:ErVuL/Acoustics-Toolbox.git
+[submodule "python/pyat"]
+	path = python/pyat
+	url = git@github.com:ErVuL/pyat.git
+[submodule "python/pyram"]
+	path = python/pyram
+	url = git@github.com:ErVuL/pyram.git
+[submodule "python/arlpy"]
+	path = python/arlpy
+	url = git@github.com:ErVuL/arlpy.git
