@@ -19,7 +19,7 @@ Make an installation directory with :
     cd <installationPath>
     
 it will contains a local copy of the main python modules, and the source code of the oalib toolbox.
-then download the entire project with:
+Then download the entire project with:
 
     git clone --recurse-submodules -j8 git@github.com:ErVuL/uAcoustics.git
     cd uAcoustics
