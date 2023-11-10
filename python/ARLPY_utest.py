@@ -12,7 +12,7 @@ import unittest
 import numpy as np
 import scipy.signal as sp
 
-from arlpy import utils, uwa, signal, comms, bf
+from arlpy import utils, uwa, signal, comms, bf, geo
 
 class MyTestCase(unittest.TestCase):
 
@@ -73,7 +73,31 @@ class UtilsTestSuite(MyTestCase):
     def test_progress(self):
         # no regression test, since this is a display utility function
         pass
+        
+class GeoTestSuite(MyTestCase):
 
+    def test_pos(self):
+        self.assertEqual(list(map(round, geo.pos([1, 103, 20]))), [277438, 110598, 20])
+        self.assertEqual(geo.zone([1, 103]), (48, 'N'))
+        self.assertEqual(geo.zone([1, 103, 20]), (48, 'N'))
+        x = (1.25, 103.5, 10.0)
+        y = geo.latlong(geo.pos(x), geo.zone(x))
+        self.assertEqual(tuple(np.round(y, 5)), x)
+        self.assertEqual(geo.d(x), (1.25, 103.5))
+        self.assertEqual(geo.dm(x), (1.0, 15.0, 103.0, 30.0))
+        self.assertEqual(geo.dms(x), (1.0, 15.0, 0.0, 103.0, 30.0, 0))
+        self.assertEqual(geo.dz(x), (1.25, 103.5, 10.0))
+        self.assertEqual(geo.dmz(x), (1.0, 15.0, 103.0, 30.0, 10.0))
+        self.assertEqual(geo.dmsz(x), (1.0, 15.0, 0.0, 103.0, 30.0, 0.0, 10.0))
+        p1 = [100.0, 200.0, -5.0]
+        p2 = [400.0, 600.0, -5.0]
+        self.assertEqual(geo.distance(p1, p1), 0.0)
+        self.assertEqual(geo.distance(p1, p2), 500.0)
+        self.assertEqual(list(map(round, geo.pos([1, 103, 20], origin=(1, 103)))), [0, 0, 20])
+        org = (1, 103)
+        y = geo.latlong(geo.pos(x, origin=org), origin=org)
+        self.assertEqual(tuple(np.round(y, 5)), x)
+        
 class UwaTestSuite(MyTestCase):
 
     def test_soundspeed(self):

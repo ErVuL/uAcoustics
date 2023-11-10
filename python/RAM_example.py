@@ -1,6 +1,7 @@
 
-import arlpy.uwa as uwa
 import numpy
+import os
+import sys
 from pyram.PyRAM import * 
 from pyram.PyRAM import plot_ramTL 
 from pyram.PyRAM import plot_ramRHOb
@@ -13,8 +14,9 @@ import scipy as sp
 from matplotlib import cm
 from matplotlib.ticker import LinearLocator
 from matplotlib import rc
-from pyat.pyat.env import *
-from pyat.pyat.readwrite import *
+from pyat.env import *
+from pyat.readwrite import *
+import arlpy.uwa as uwa
 
 rc('font',**{'family':'sans-serif','sans-serif':['Helvetica']})
 rc('text', usetex=True)

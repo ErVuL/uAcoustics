@@ -3,8 +3,8 @@ import arlpy.uwa as uwa
 from os import system
 from matplotlib import pyplot as plt
 from matplotlib import rc
-from pyat.pyat.env import *
-from pyat.pyat.readwrite import *
+from pyat.env import *
+from pyat.readwrite import *
 import sys
 os.environ['PATH'] = os.environ['PATH'].replace(':/opt/build/at/bin', '')+":/opt/build/at/bin"
 
