@@ -99,7 +99,7 @@ Fork from https://github.com/org-arl/arlpy.
 ### UTM
 
 Bidirectional UTM-WGS84 converter for python.
-Fork from 
+Fork from https://github.com/Turbo87/utm.git.
 
 ## Linked resources
 
