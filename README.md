@@ -37,11 +37,11 @@ The acoustic toolbox from OALIB is in fortran, the installation is done in ***/o
     make install
 
 you may have to "sudo" some commands but avoid it if not necessary.
-Add ***bin*** folder to your ***$PATH*** by editing your ***./profile***, ***./bashprofile*** or ***./bashrc*** and adding the following line:
+Add binaries to your ***$PATH*** by editing your ***./profile***, ***./bashprofile*** or ***./bashrc*** and adding the following line:
 
     export PATH="/opt/build/at/bin:$PATH"
 
-This allow python modules to find fortran executable files.\
+This allow python modules and your shell to find fortran executable files.\
 *In Spyder or some other IDEs you may have to add:*
 
     os.environ['PATH'] = os.environ['PATH'].replace(':/opt/build/at/bin', '')+":/opt/build/at/bin"
