@@ -6,6 +6,7 @@ from matplotlib import rc
 from pyat.env import *
 from pyat.readwrite import *
 import sys
+
 os.environ['PATH'] = os.environ['PATH'].replace(':/opt/build/at/bin', '')+":/opt/build/at/bin"
 
 rc('font',**{'family':'sans-serif','sans-serif':['Helvetica']})

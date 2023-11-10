@@ -5,11 +5,23 @@ Python/Linux underwater acoustics propagation models and toolbox using ***pyat**
 
 The following installation process is written for a debian based Linux OS. Tested under Debian 12 with built-in python 3.11.2.
 
-### LaTeX
+### Download
 
-Install LaTeX with the following command:
+Make an installation directory with :
+
+    mkdir <installationPath>
+    cd <installationPath>
+
+then download the entire project with:
+
+    git clone --recurse-submodules -j8 git@github.com:ErVuL/uAcoustics.git
+    cd uAcoustics
+
+### Required APT
+
+Install some applications with the following command:
     
-    sudo apt install texlive-base
+    sudo apt install texlive-base gfortran cmake 
 
 ### OALIB AT
 
@@ -27,7 +39,13 @@ Add ***bin*** folder to your $PATH by editing your ***./profile***, ***./bashpro
 
     export PATH="/opt/build/at/bin:$PATH"
 
-This allow python modules to find fortran executable files.
+This allow python modules to find fortran executable files.\
+
+*In Spyder or some other IDEs you may have to add:
+
+    os.environ['PATH'] = os.environ['PATH'].replace(':/opt/build/at/bin', '')+":/opt/build/at/bin"
+    
+at the beginning of your code to import the fortran binaries to your IDE's environment.*
 
 ### PYTHON
 
@@ -38,12 +56,14 @@ or:
 
     pip3 install numpy scipy matplotlib pandas
 
-Copy the ***pyat***, ***pyram*** and ***arlpy*** directories into your python project.\
-In Spyder or some other IDEs you may have to add:
+Now you need to add the ***pyat***, ***pyram*** and ***arlpy*** folders to your ***PYTHONPATH*** by adding:
 
-    os.environ['PATH'] = os.environ['PATH'].replace(':/opt/build/at/bin', '')+":/opt/build/at/bin"
-    
-at the beginning of your code to import the fortran binaries to your IDE's environment.
+    export PYTHONPATH="<installationPath>/uAcoustics/python/arlpy:$PYTHONPATH"
+    export PYTHONPATH="<installationPath>/uAcoustics/python/pyram:$PYTHONPATH"
+    export PYTHONPATH="<installationPath>/uAcoustics/python/pyat:$PYTHONPATH"
+    export PYTHONPATH="<installationPath>/uAcoustics/python/utm:$PYTHONPATH"
+
+For Spyder or IDEs you may have to add them to the IDE's PYTHONPATH.
 
 ## About
 
