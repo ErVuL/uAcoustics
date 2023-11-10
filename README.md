@@ -27,7 +27,7 @@ Then download the entire project with:
 ### OALIB
 
 *OPTIONAL : Modify the ***at/MakeFile*** in order to set your own compilation settings (add Krakel, use LLAPACK, configure CPU, ...).*\
-The acoustic toolbox from OALIB is in fortran, with the following commands:
+The acoustic toolbox from OALIB is in fortran, the installation is done with the following commands:
 
     mkdir /opt/build
     cp -r oalib/at /opt/build
