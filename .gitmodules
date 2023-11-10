@@ -12,4 +12,4 @@
 	url = git@github.com:ErVuL/arlpy.git
 [submodule "python/utm"]
 	path = python/utm
-	url = https://github.com/Turbo87/utm.git
+	url = git@github.com:ErVuL/utm.git
