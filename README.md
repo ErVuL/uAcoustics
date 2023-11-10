@@ -41,7 +41,7 @@ Add binaries to your ***$PATH*** by editing your ***./profile***, ***./bashprofi
 
     export PATH="/opt/build/at/bin:$PATH"
 
-This allow python modules and your shell to find fortran executable files.\
+This allows your shell to find fortran executable files.\
 *In Spyder or some other IDEs you may have to add:*
 
     os.environ['PATH'] = os.environ['PATH'].replace(':/opt/build/at/bin', '')+":/opt/build/at/bin"
