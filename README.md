@@ -1,5 +1,5 @@
 # uAcoustics
-Python/Linux underwater acoustics propagation models and toolbox using ***pyat***, ***pyram***, ***arlpy*** and the ***OALIB acoustic toolbox***.
+Underwater acoustic propagation models and Python/Linux toolbox using ***pyat***, ***pyram***, ***arlpy*** and the ***OALIB acoustic toolbox***.
 
 ## Installation
 
