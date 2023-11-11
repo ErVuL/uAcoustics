@@ -1,11 +1,9 @@
+import os
 import numpy as np
-import arlpy.uwa as uwa
-from os import system
-from matplotlib import pyplot as plt
+import matplotlib.pyplot as plt
 from matplotlib import rc
-from pyat.env import *
+import pyat.env as at
 from pyat.readwrite import *
-import sys
 
 os.environ['PATH'] = os.environ['PATH'].replace(':/opt/build/at/bin', '')+":/opt/build/at/bin"
 
@@ -29,9 +27,9 @@ ab = 0.2                                                                       #
 sd = 20                                                                        # source depth [m]
 Z = np.arange(0, 200, .5)                                                      # depth of recievers [m]
 X = np.arange(0, 10, .01)                                                      # range of receivers [km]
-s = Source(sd)
-r = Dom(X, Z)
-pos = Pos(s,r)
+s = at.Source(sd)
+r = at.Dom(X, Z)
+pos = at.Pos(s,r)
 pos.s.depth = [sd]
 pos.r.depth = Z
 pos.r.range = X
@@ -48,10 +46,10 @@ alphaI	=	aw*np.ones(z1.shape)                                               # p-
 betaI	=	0.0*np.ones(z1.shape)                                              # s-wave attenuation [units are determined by Opt (below)]
 
 # create raw sound speed object - package of all arrays above
-ssp1 = SSPraw(z1, alphaR, betaR, rho, alphaI, betaI)                           
+ssp1 = at.SSPraw(z1, alphaR, betaR, rho, alphaI, betaI)                           
 
 # Sound Speed Layer Specifications
-depth   = [0, bottom_depth]                                                     # depth array for layers
+depth   = [0, bottom_depth]                                                    # depth array for layers
 NMedia	= 1
 Opt		= 'CVW'                                                                # C-linear interpolation, Vaccuum top boundary, attenuation in dB/wavelength
 
@@ -60,14 +58,14 @@ N	  =	[z1.size]                                                              # a
 sigma =	[.5,.5]	                                                               # roughness at each layer. only effects attenuation (imag part)
 
 # create sound speed object
-ssp   = SSP([ssp1], depth, NMedia, Opt, N, sigma)                              
+ssp   = at.SSP([ssp1], depth, NMedia, Opt, N, sigma)                              
 
 # Define Boundary Conditions
-hs = HS(alphaR=cb, betaR=0, rho = pb, alphaI=ab, betaI=0)                      # create halph space object for the bottom
+hs = at.HS(alphaR=cb, betaR=0, rho = pb, alphaI=ab, betaI=0)                   # create halph space object for the bottom
 Opt = 'A'                                                                      # acousto-elastic half space, 
-bottom = BotBndry(Opt, hs)                                                     # create Bottom Boundary Object
-top = TopBndry('CVW')                                                          # create Top Boundary Object
-bdy = Bndry(top, bottom)                                                       # create boundary object for both top and bottom
+bottom = at.BotBndry(Opt, hs)                                                  # create Bottom Boundary Object
+top = at.TopBndry('CVW')                                                       # create Top Boundary Object
+bdy = at.Bndry(top, bottom)                                                    # create boundary object for both top and bottom
 
 # Write Environment File
 class Empty:
@@ -97,9 +95,9 @@ env = read_env('py_env.env', 'KRAKEN')
 
 ### Plots
 #########
-plot_lvl(X, Z, pressure, PlotTitle, vmin=-120, vmax=0)
-plot_ssp(ssp, PlotTitle)
-plot_mod(modes, 10, PlotTitle)
+at.plot_lvl(X, Z, pressure, PlotTitle, vmin=-120, vmax=0)
+at.plot_ssp(ssp, PlotTitle)
+at.plot_mod(modes, 10, PlotTitle)
 
 plt.show()
 

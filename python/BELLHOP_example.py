@@ -1,10 +1,8 @@
+import os
 import numpy as np
-import arlpy.uwa as uwa
-import sys
-from os import system
-from matplotlib import pyplot as plt
+import matplotlib.pyplot as plt
 from matplotlib import rc
-from pyat.env import *
+import pyat.env as at
 from pyat.readwrite import *
 
 os.environ['PATH'] = os.environ['PATH'].replace(':/opt/build/at/bin', '')+":/opt/build/at/bin"
@@ -31,9 +29,9 @@ ab = 0.5                                                                       #
 sd           = 2500                                                            # source depth [m]
 Z            = np.linspace(1, 5000, 201)                                       # depth of recievers [m]
 X            = np.arange(1, 100, .1)                                           # range of receivers [km]
-s            = Source(sd)
-r            = Dom(X, Z)
-pos          = Pos(s,r)
+s            = at.Source(sd)
+r            = at.Dom(X, Z)
+pos          = at.Pos(s,r)
 pos.s.depth  = [sd]
 pos.r.depth  = Z
 pos.r.range  = X
@@ -50,7 +48,7 @@ alphaI = aw*np.array([1]*len(z1))		                                       # p-wa
 betaI  = 0.0*np.array([1]*len(z1))                                             # s-wave attenuation [units are determined by Opt (below)]
 
 # create raw sound speed object - package of all arrays above
-ssp1 = SSPraw(z1, alphaR, betaR, rho, alphaI, betaI)
+ssp1 = at.SSPraw(z1, alphaR, betaR, rho, alphaI, betaI)
 
 
 ### Sound-speed layer specifications
@@ -63,7 +61,7 @@ Opt	   = 'CVW'
 N      = [0, 0]	
 sigma  = [0, 0]	
 raw[0]
-ssp    = SSP(raw, depth, NMedia, Opt, N, sigma)
+ssp    = at.SSP(raw, depth, NMedia, Opt, N, sigma)
 
 # Sound-speed layer 2 specifications
 alphaR  = 1600 		                                                           # p wave speed in sediment
@@ -73,11 +71,11 @@ betaI   = 0     	                                                           # s 
 rhob    = 1600
 
 # Define Boundary Conditions
-hs     = HS(alphaR, betaR, rhob, alphaI, betaI)
+hs     = at.HS(alphaR, betaR, rhob, alphaI, betaI)
 Opt    = 'A'
-bottom = BotBndry(Opt, hs)
-top    = TopBndry('CVW')
-bdy    = Bndry(top, bottom)
+bottom = at.BotBndry(Opt, hs)
+top    = at.TopBndry('CVW')
+bdy    = at.Bndry(top, bottom)
 
 
 low  = 1400
@@ -129,31 +127,31 @@ write_sbp("py_env.sbp", directivity)
 run_type = 'I'
 beam     = Beam(RunType=run_type, Nbeams=nbeams, alpha=alpha, box=box, deltas=deltas)
 write_env('py_env.env', 'BELLHOP', Title, freq, ssp, bdy, pos, beam, cInt, RMax)
-system("bellhop.exe py_env")
+os.system("bellhop.exe py_env")
 [PlotTitle, PlotType, freqVec, atten, ppos, pressure] = read_shd("py_env.shd")
 
 # Generate a ray file
 run_type = 'R'
 beam     = Beam(RunType=run_type, Nbeams=nbeams, alpha=alpha, box=box, deltas=deltas)
 write_env('py_env.env', 'BELLHOP', Title, freq, ssp, bdy, pos, beam, cInt, RMax)
-system("bellhop.exe py_env")
+os.system("bellhop.exe py_env")
 rays = "py_env.ray"
 
 ### Generate arrivals file
 run_type = 'A'
 beam     = Beam(RunType=run_type, Nbeams=nbeams, alpha=alpha, box=box, deltas=deltas)
 write_env('py_env.env', 'BELLHOP', Title, freq, ssp, bdy, pos, beam, cInt, RMax)
-system("bellhop.exe py_env")
+os.system("bellhop.exe py_env")
 arrival_list, pos = read_arrivals_asc_alt("py_env.arr")
 
 
 ### Plots
 #########
-plot_lvl(X, Z, pressure, PlotTitle, vmin=-60, vmax=0)
-plot_ssp(ssp, PlotTitle)
-plot_ray(rays, PlotTitle)
-plot_cir(arrival_list[357], PlotTitle)
-plot_ellipse(arrival_list[357], PlotTitle)
+at.plot_lvl(X, Z, pressure, PlotTitle, vmin=-60, vmax=0)
+at.plot_ssp(ssp, PlotTitle)
+at.plot_ray(rays, PlotTitle)
+at.plot_cir(arrival_list[357], PlotTitle)
+at.plot_elp(arrival_list[357], PlotTitle)
 
 plt.show()
 
