@@ -70,11 +70,11 @@ alphaI  = .5   		                                                           # p 
 betaI   = 0     	                                                           # s wave atten
 rhob    = 1600
 
+
 # Define Boundary Conditions
-hs     = at.HS(alphaR, betaR, rhob, alphaI, betaI)
-Opt    = 'A'
-bottom = at.BotBndry(Opt, hs)
-top    = at.TopBndry('CVW')
+hs     = at.HS(alphaR, betaR, rhob, alphaI, betaI)                                                               
+bottom = at.BotBndry('A', hs)                                                  # Analytic bottom boundary condition (add * for use of bty file)
+top    = at.TopBndry('CVW')                                                    # C: Interpolate sound speed, V: Standard vacuum condition for ocean surface, W: Attenuation in dB/lambda
 bdy    = at.Bndry(top, bottom)
 
 
@@ -90,25 +90,28 @@ alpha    = np.linspace(-20,20, 100)
 box      = Box(5500, 100)
 deltas   = 0
 
-# Bathy
-bathy = np.array([
-    [0, 500],    
-    [65, 3000],  
-    [80, 1000]
+# Bathy (range in km, depth in m)
+bathy = np.array(
+[   #range  depth
+    [0,     2000],    
+    [65,    100],  
+    [80,    3000]
 ])
 
-# Surface
-surface = np.array([
-    [0, 0],    
-    [65, 500],  
-    [80, 0]
+# Surface (range in km, depth in m)
+surface = np.array(
+[   #range  depth
+    [0,     0],    
+    [65,    50],  
+    [80,    0]
 ])
 
 # Directivity
-directivity = np.array([
-    [0, 30],    
-    [40, 200],  
-    [80, 20]
+directivity = np.array(
+[   #theta   power
+    [0,      -20],    
+    [40,     -30],  
+    [80,     10]
 ])
 
 # Write Bathy, Surface and Directivity files
@@ -116,30 +119,32 @@ directivity = np.array([
 # TODO      - Take it into account for computation
 #           - Plot function
 #           - Units ?
-write_bathy("py_env.bty", bathy)
-write_ati("py_env.ati", surface, interp='C')
-write_sbp("py_env.sbp", directivity)
+write_bathy("py_env.bty", bathy, interp='L')                                   # Piecewise linear fit
+write_ati("py_env.ati", surface, interp='C')                                   # Curvilinear fit
+write_sbp("py_env.sbp", directivity)                                           # Source directivity pattern 
     
 ### Run Bellhop
 ###############
 
-# Compute incoherent TL
-run_type = 'I'
+# Compute incoherent TL with Geometric Gaussian beams in Cartesian coordinates using beam pattern file *.sbp
+run_type = 'IB*'                                                              
 beam     = Beam(RunType=run_type, Nbeams=nbeams, alpha=alpha, box=box, deltas=deltas)
 write_env('py_env.env', 'BELLHOP', Title, freq, ssp, bdy, pos, beam, cInt, RMax)
 os.system("bellhop.exe py_env")
-[PlotTitle, PlotType, freqVec, atten, ppos, pressure] = read_shd("py_env.shd")
+[PlotTitle, PlotType, freqVec, atten, ppos, pressure] = read_shd_bin("py_env.shd")
 
-# Generate a ray file
-run_type = 'R'
+# Generate a ray file with Geometric Gaussian beams in Cartesian coordinates using beam pattern file *.sbp
+run_type = 'RB*'
 beam     = Beam(RunType=run_type, Nbeams=nbeams, alpha=alpha, box=box, deltas=deltas)
 write_env('py_env.env', 'BELLHOP', Title, freq, ssp, bdy, pos, beam, cInt, RMax)
 os.system("bellhop.exe py_env")
 rays = "py_env.ray"
 
-### Generate arrivals file
-run_type = 'A'
+### Generate arrivals file with Geometric Gaussian beams in Cartesian coordinates using beam pattern file *.sbp
+run_type = 'AB*'
 beam     = Beam(RunType=run_type, Nbeams=nbeams, alpha=alpha, box=box, deltas=deltas)
+pos.r.range = [65] # km
+pos.r.depth = [50] # m
 write_env('py_env.env', 'BELLHOP', Title, freq, ssp, bdy, pos, beam, cInt, RMax)
 os.system("bellhop.exe py_env")
 arrival_list, pos = read_arrivals_asc_alt("py_env.arr")
@@ -150,8 +155,8 @@ arrival_list, pos = read_arrivals_asc_alt("py_env.arr")
 at.plot_lvl(X, Z, pressure, PlotTitle, vmin=-60, vmax=0)
 at.plot_ssp(ssp, PlotTitle)
 at.plot_ray(rays, PlotTitle)
-at.plot_cir(arrival_list[357], PlotTitle)
-at.plot_elp(arrival_list[357], PlotTitle)
+at.plot_cir(arrival_list[0], PlotTitle)
+at.plot_elp(arrival_list[0], PlotTitle)
 
 plt.show()
 
