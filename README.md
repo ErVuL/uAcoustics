@@ -92,8 +92,7 @@ Fork from https://github.com/hunterakins/pyat.
 
 ### ARLPY
 
-Python project also able to interact with bellhop.\
-It contains a lot of useful functions for underwater acoustic processing.\
+Python project with some signal processing, underwater acoustics utilities and also able to interact with bellhop.\
 Fork from https://github.com/org-arl/arlpy.
 
 ### UTM
