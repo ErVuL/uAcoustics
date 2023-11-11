@@ -80,6 +80,12 @@ freq = 400
 write_env('py_env.env', 'KRAKEN', Title, freq, ssp, bdy, pos, [], cInt, RMax)
 write_fieldflp('py_env', 'R', pos)                                             # Build .flp file
 
+# Bathy (range in km, depth in m) just for plot
+bathy = np.array(
+[   #range  depth
+    [0,     200]
+])
+
 ### Run Kraken
 ##############
 os.system('kraken.exe py_env')
@@ -95,7 +101,7 @@ env = read_env('py_env.env', 'KRAKEN')
 
 ### Plots
 #########
-at.plot_lvl(X, Z, pressure, PlotTitle, vmin=-120, vmax=0)
+at.plot_lvl(X, Z, pressure, bathy, PlotTitle, vmin=-120, vmax=0)
 at.plot_ssp(ssp, PlotTitle)
 at.plot_mod(modes, 10, PlotTitle)
 
