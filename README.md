@@ -37,7 +37,7 @@ The acoustic toolbox from OALIB is in fortran, the installation is done in ***/o
     make install
 
 you may have to "sudo" some commands but avoid it if not necessary.
-Add binaries to your ***$PATH*** by editing your ***./profile***, ***./bashprofile*** or ***./bashrc*** and adding the following line:
+Add binaries to your ***$PATH*** by editing your ***./bashrc*** (or ***./profile*** or ***./bashprofile***) and adding the following line:
 
     export PATH="/opt/build/at/bin:$PATH"
 
@@ -64,7 +64,7 @@ Add the ***pyat***, ***pyram***, ***utm*** and ***arlpy*** directories to your *
     export PYTHONPATH="<installationPath>/uAcoustics/python/pyat:$PYTHONPATH"
     export PYTHONPATH="<installationPath>/uAcoustics/python/utm:$PYTHONPATH"
 
-to the end of your ***./profile***, ***./bashprofile*** or ***./bashrc*** file.\
+to the end of your ***./bashrc*** (or ***./profile*** or ***./bashprofile***).\
 *For Spyder or IDEs you may have to add them to the IDE's ***$PYTHONPATH***.*
 
 ## About
