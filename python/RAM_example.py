@@ -29,7 +29,7 @@ RAMenv = dict(
     rp_ss = np.array([0, 10000, 12000]),                       # Range for sound speed profile update (m)
     z_ss  = np.array([0, 250, 500, ZMAX]),                     # Sound speed profile depth point (m)
     
-                        #rp_ss1   rp_ss2   ...                                                                                                      
+                      #rp_ss1  rp_ss2   ...                                                                                                      
     cw    = np.array([[1530,   1540,    1550],   # z_ss1       # Sound speed in water column (m/s)
                       [1200,   1200,    1200],   # z_ss2
                       [1480,   1530,    1550],   # ...
@@ -72,8 +72,8 @@ ram_out = ram.ram(**RAMenv).run()
 #########
 ram.plot_tline(ram_out, Title=Title, **RAMenv)
 ram.plot_tl(ram_out, Title=Title, vmin = 0, vmax = 120, **RAMenv)
-ram.plot_rhob(Title=Title, vmin=0.3, vmax=3, Nxy=200, **RAMenv)
-ram.plot_ssp(Nxy=200, Title=Title, **RAMenv)
-ram.plot_atn(Nxy=200, Title=Title, vmin=0, vmax=1, **RAMenv)
+ram.plot_rhob(Title=Title, vmin=0.3, vmax=3, Nxy=500, **RAMenv)
+ram.plot_ssp(Nxy=500, Title=Title, **RAMenv)
+ram.plot_atn(Nxy=500, Title=Title, vmin=0, vmax=1, **RAMenv)
 
 plt.show()
