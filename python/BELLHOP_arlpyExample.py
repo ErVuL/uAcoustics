@@ -12,20 +12,12 @@ Title = "Example"
 ##############
 
 bathy = [
-    [0, 30],    # 30 m water depth at the transmitter
-    [300, 20],  # 20 m water depth 300 m away
-    [1000, 25]  # 25 m water depth at 1 km
     
 ]
 
 surface = np.array([[r, 0.75+0.75*np.sin(2*np.pi*0.05*r)] for r in np.linspace(0,1000,1001)])
 
 ssp = [
-    [ 0, 1540],  # 1540 m/s at the surface
-    [10, 1530],  # 1530 m/s at 10 m depth
-    [20, 1532],  # 1532 m/s at 20 m depth
-    [25, 1533],  # 1533 m/s at 25 m depth
-    [30, 1535]   # 1535 m/s at the seabed
 ]
 
 beampattern = np.array([
