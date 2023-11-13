@@ -1,6 +1,7 @@
 import arlpy.uwapm as pm
 import numpy as np
 import os 
+import matplotlib.pyplot as plt
 
 os.environ['PATH'] = os.environ['PATH'].replace(':/opt/build/at/bin', '')+":/opt/build/at/bin"
 
@@ -12,12 +13,20 @@ Title = "Example"
 ##############
 
 bathy = [
+    [0, 20],    # 30 m water depth at the transmitter
+    [300, 30],  # 20 m water depth 300 m away
+    [1000, 15]  # 25 m water depth at 1 km
     
 ]
 
 surface = np.array([[r, 0.75+0.75*np.sin(2*np.pi*0.05*r)] for r in np.linspace(0,1000,1001)])
 
 ssp = [
+    [ 0, 1532],  # 1540 m/s at the surface
+    [10, 1525],  # 1530 m/s at 10 m depth
+    [20, 1527],  # 1532 m/s at 20 m depth
+    [25, 1526],  # 1533 m/s at 25 m depth
+    [30, 1525]   # 1535 m/s at the seabed
 ]
 
 beampattern = np.array([
@@ -37,6 +46,7 @@ env = pm.create_env2d(
     bottom_density=1200,
     bottom_absorption=1.0,
     tx_depth=15,
+    rx_depth=10,
     tx_directionality=beampattern,
     surface=surface
 )
@@ -46,13 +56,16 @@ pm.print_env(env)
 ## Run Bellhop
 ##############
 
-eigrays  = pm.compute_eigenrays(env)
 rays     = pm.compute_rays(env)
+eigrays  = pm.compute_eigenrays(env)
 arrivals = pm.compute_arrivals(env)
 ir       = pm.arrivals_to_impulse_response(arrivals, fs=96000)
+pm.plot_rays(eigrays, env=env, Title=Title)
 
 env['rx_range'] = np.linspace(0, 1000, 1001)
 env['rx_depth'] = np.linspace(0, 30, 301)
 tloss    = pm.compute_transmission_loss(env, mode='incoherent')
-
 pm.plot_transmission_loss(tloss, env=env, Title=Title, vmin=-60, vmax=-10)
+
+
+plt.show()
