@@ -16,7 +16,6 @@ bathy = [
     [0, 20],    # 30 m water depth at the transmitter
     [300, 30],  # 20 m water depth 300 m away
     [1000, 15]  # 25 m water depth at 1 km
-    
 ]
 
 surface = np.array([[r, 0.75+0.75*np.sin(2*np.pi*0.05*r)] for r in np.linspace(0,1000,1001)])
@@ -56,16 +55,17 @@ pm.print_env(env)
 ## Run Bellhop
 ##############
 
+# Rays and arrivals for a single rx position
 rays     = pm.compute_rays(env)
 eigrays  = pm.compute_eigenrays(env)
 arrivals = pm.compute_arrivals(env)
 ir       = pm.arrivals_to_impulse_response(arrivals, fs=96000)
 pm.plot_rays(eigrays, env=env, Title=Title)
 
+# Transmission Loss map
 env['rx_range'] = np.linspace(0, 1000, 1001)
 env['rx_depth'] = np.linspace(0, 30, 301)
 tloss    = pm.compute_transmission_loss(env, mode='incoherent')
 pm.plot_transmission_loss(tloss, env=env, Title=Title, vmin=-60, vmax=-10)
-
 
 plt.show()

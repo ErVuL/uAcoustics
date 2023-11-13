@@ -74,7 +74,7 @@ rhob    = 1600
 # Define Boundary Conditions
 hs     = at.HS(alphaR, betaR, rhob, alphaI, betaI)                                                               
 bottom = at.BotBndry('A*', hs)                                                 # Analytic bottom boundary condition (add * for use of .bty file)
-top    = at.TopBndry('AVWT*')                                                    # C: Interpolate sound speed, V: Standard vacuum condition for ocean surface, W: Attenuation in dB/lambda
+top    = at.TopBndry('CVW')                                                    # C: Interpolate sound speed, V: Standard vacuum condition for ocean surface, W: Attenuation in dB/lambda
 bdy    = at.Bndry(top, bottom)
 
 
