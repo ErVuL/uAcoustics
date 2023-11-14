@@ -2,8 +2,11 @@ import arlpy.uwapm as pm
 import numpy as np
 import os 
 import matplotlib.pyplot as plt
+from matplotlib import rc
 
 os.environ['PATH'] = os.environ['PATH'].replace(':/opt/build/at/bin', '')+":/opt/build/at/bin"
+rc('font',**{'family':'sans-serif','sans-serif':['Helvetica']})
+rc('text', usetex=True)
 
 pm.models()
 
@@ -55,17 +58,21 @@ pm.print_env(env)
 ## Run Bellhop
 ##############
 
+Fs = 96000
+
 # Rays and arrivals for a single rx position
 rays     = pm.compute_rays(env)
 eigrays  = pm.compute_eigenrays(env)
 arrivals = pm.compute_arrivals(env)
-ir       = pm.arrivals_to_impulse_response(arrivals, fs=96000)
-pm.plot_rays(eigrays, env=env, Title=Title)
+ir       = pm.arrivals_to_impulse_response(arrivals, fs=Fs)
+pm.plot_rays(eigrays, env, Title)
+pm.plot_arrivals(arrivals, env, Title, fs=Fs, dB=False)
+pm.plot_ir(ir, env, Title, fs=Fs)
 
 # Transmission Loss map
 env['rx_range'] = np.linspace(0, 1000, 1001)
 env['rx_depth'] = np.linspace(0, 30, 301)
 tloss    = pm.compute_transmission_loss(env, mode='incoherent')
-pm.plot_transmission_loss(tloss, env=env, Title=Title, vmin=-60, vmax=-10)
+pm.plot_transmission_loss(tloss, env, Title, vmin=-60, vmax=-10)
 
 plt.show()
