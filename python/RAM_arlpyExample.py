@@ -24,7 +24,7 @@ z = np.linspace(0, 3000,  1500)
 bathy = [
     [x[0],  2500],  
     [10000, 3000],
-    [20000, 1000],  
+    [20000, 2000],  
     [30000, 2500], 
     [x[-1], 3000]  
 ]
@@ -33,7 +33,7 @@ bathy = [
 ### Surface ###
 ###############
 
-surface = np.array([[r, 0.0+0.0*np.sin(2*np.pi*0.05*r)] for r in x])
+surface = np.array([[r, 1+1*np.sin(2*np.pi*0.05*r)] for r in x])
 
 ###################################
 ### Sound speed in water column ###
@@ -42,7 +42,7 @@ surface = np.array([[r, 0.0+0.0*np.sin(2*np.pi*0.05*r)] for r in x])
 ssp_depth = [z[0], 1000, 2000, 2500, z[-1]]
 ssp_range = [0, 10000]
 
-ssp = [
+soundspeed = [
     [1527,  1532],
     [1400,  1400],
     [1540,  1600], 
@@ -91,19 +91,20 @@ bottom_density = [
 
 env = pm.create_env2d(
     depth              = bathy,
-    soundspeed         = np.insert(ssp,0,ssp_depth,axis=1),
+    surface            = surface,
+    soundspeed         = soundspeed,
     soundspeed_range   = ssp_range,
+    soundspeed_depth   = ssp_depth,
     bottom_soundspeed  = bottom_soundspeed,
     bottom_density     = bottom_density,
     bottom_absorption  = bottom_absorption,
     bottom_sdepth      = bottom_sdepth,        
     bottom_srange      = bottom_srange,
+    frequency          = frequency,
     tx_depth           = tx_depth,
-    rx_depth           = z,
-    rx_range           = x,
     tx_directionality  = beampattern,
-    surface            = surface,
-    frequency          = frequency
+    rx_depth           = z,
+    rx_range           = x  
 )
 
 ########################
