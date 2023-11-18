@@ -44,9 +44,9 @@ beampattern = np.array([
 env = pm.create_env2d(
     depth=bathy,
     soundspeed=ssp,
-    bottom_soundspeed=1450,
-    bottom_density=1200,
-    bottom_absorption=1.0,
+    bottom_soundspeed=np.array(1450),
+    bottom_density=np.array(1200),
+    bottom_absorption=np.array(1.0),
     tx_depth=15,
     rx_depth=10,
     tx_directionality=beampattern,
@@ -72,7 +72,8 @@ pm.plot_ir(ir, env, Title, fs=Fs)
 # Transmission Loss map
 env['rx_range'] = np.linspace(0, 1000, 1001)
 env['rx_depth'] = np.linspace(0, 30, 301)
-tloss    = pm.compute_transmission_loss(env, mode='incoherent')
+tloss = pm.compute_transmission_loss(env, mode='incoherent')
 pm.plot_transmission_loss(tloss, env, Title, vmin=-60, vmax=-10)
+
 
 plt.show()
