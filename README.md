@@ -88,6 +88,20 @@ to the end of your ***./bashrc*** (or ***./profile*** or ***./bashprofile***).\
 | Add sparc to arlpy                               | Not started |
 | Add krakel to arlpy                              | Not started |
 
+## Some results
+
+![ssp](https://github.com/ErVuL/uAcoustics/assets/45111151/5d792822-d54b-4044-a1b6-6a19d8587299)
+![ray](https://github.com/ErVuL/uAcoustics/assets/45111151/a700f0dc-e901-48ff-819d-38f26185ed8f)
+![ram](https://github.com/ErVuL/uAcoustics/assets/45111151/cd51b9dc-163d-4044-a5c7-1fb45e520f75)
+![polar](https://github.com/ErVuL/uAcoustics/assets/45111151/c1acb1a1-558c-498b-bfe8-5fcf0e130d21)
+![mod](https://github.com/ErVuL/uAcoustics/assets/45111151/a763ddc5-382f-4c20-a7a5-8bf87047bea5)
+![kraken](https://github.com/ErVuL/uAcoustics/assets/45111151/26e4d311-5012-4d3a-ad03-02db203eeb82)
+![ir](https://github.com/ErVuL/uAcoustics/assets/45111151/b481e89d-094f-41ec-8074-13a56ea33392)
+![density](https://github.com/ErVuL/uAcoustics/assets/45111151/84467ff8-cffa-4bc0-bd03-82891725bff9)
+![bellhop](https://github.com/ErVuL/uAcoustics/assets/45111151/47080998-0a05-4997-8b82-68de0ec7c825)
+![attn](https://github.com/ErVuL/uAcoustics/assets/45111151/d8a009d6-9d14-4957-ae2e-b944f6a5d1c8)
+![arrivals](https://github.com/ErVuL/uAcoustics/assets/45111151/84a509a1-5b96-4587-8a66-c227fb9eabed)
+
 
 ## About
 
