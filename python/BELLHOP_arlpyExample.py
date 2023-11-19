@@ -28,7 +28,7 @@ ssp = [
     [10, 1525],  # 1530 m/s at 10 m depth
     [20, 1527],  # 1532 m/s at 20 m depth
     [25, 1526],  # 1533 m/s at 25 m depth
-    [30, 1525]   # 1535 m/s at the seabed
+    [29, 1525]   # 1535 m/s at the seabed
 ]
 
 beampattern = np.array([

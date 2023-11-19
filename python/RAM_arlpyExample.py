@@ -57,13 +57,15 @@ soundspeed = [
 tx_depth  = 500
 frequency = 500
 
-beampattern = [
-    [-180, -60],
-    [-5,     0],
-    [0,    -60],
-    [5,      0],
-    [180,  -60],
-]
+beampattern = np.array([
+    [-180,  10], [-170, -10], [-160,   0], [-150, -20], [-140, -10], [-130, -30],
+    [-120, -20], [-110, -40], [-100, -30], [-90 , -50], [-80 , -30], [-70 , -40],
+    [-60 , -20], [-50 , -30], [-40 , -10], [-30 , -20], [-20 ,   0], [-10 , -10],
+    [  0 ,  10], [ 10 , -10], [ 20 ,   0], [ 30 , -20], [ 40 , -10], [ 50 , -30],
+    [ 60 , -20], [ 70 , -40], [ 80 , -30], [ 90 , -50], [100 , -30], [110 , -40],
+    [120 , -20], [130 , -30], [140 , -10], [150 , -20], [160 ,   0], [170 , -10],
+    [180 ,  10]
+])
 
 #######################
 ### Bottom settings ###
@@ -111,6 +113,15 @@ env = pm.create_env2d(
 ### Compute and plot ###
 ########################
 
+# RAM
+env['model'] = 'RAM'
+tloss = pm.compute_transmission_loss(env)
+pm.plot_transmission_loss(tloss, env, Title, vmin=-120, vmax=0)
+pm.plot_soundspeed(env, Title, vmin=1400, vmax=1700)
+pm.plot_absorption(env, Title)
+pm.plot_density(env, Title)
+pm.plot_beam(env, Title)
+
 # Bellhop for comparison
 env['model'] = 'BELLHOP'
 tloss =  pm.compute_transmission_loss(env, mode='coherent') 
@@ -120,13 +131,16 @@ pm.plot_absorption(env, Title)
 pm.plot_density(env, Title)
 pm.plot_beam(env, Title)
 
-# RAM
-env['model'] = 'RAM'
-tloss = pm.compute_transmission_loss(env)
-pm.plot_transmission_loss(tloss, env, Title, vmin=-120, vmax=0)
-pm.plot_soundspeed(env, Title, vmin=1400, vmax=1700)
-pm.plot_absorption(env, Title)
-pm.plot_density(env, Title)
-pm.plot_beam(env, Title)
+# Rays and arrivals for a single rx position
+env['rx_range'] = 20000
+env['rx_depth'] = 1000
+rays     = pm.compute_rays(env)
+eigrays  = pm.compute_eigenrays(env)
+arrivals = pm.compute_arrivals(env)
+ir       = pm.arrivals_to_impulse_response(arrivals, fs=96000)
+pm.plot_rays(eigrays, env, Title)
+pm.plot_arrivals(arrivals, env, Title, fs=96000, dB=False)
+pm.plot_ir(ir, env, Title, fs=96000)
+
 
 plt.show()

@@ -103,7 +103,7 @@ env = read_env('py_env.env', 'KRAKEN')
 #########
 at.plot_lvl(X, Z, pressure, bathy, PlotTitle, vmin=-120, vmax=0)
 at.plot_ssp(ssp, PlotTitle)
-at.plot_mod(modes, 10, PlotTitle)
+at.plot_mod(modes, 5, PlotTitle)
 
 plt.show()
 
