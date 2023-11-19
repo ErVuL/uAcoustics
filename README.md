@@ -75,11 +75,11 @@ to the end of your ***./bashrc*** (or ***./profile*** or ***./bashprofile***).\
 |------------------------------------------------|-------------|
 | Make oalib works properly                      | Done        |
 | Simpler acoustic env() in arlpy                | Done        |
+| Use matplotlib for plots                       | In progress |
+| Add usefull plots                              | In progress |
 | Add pyram to arlpy:                            | In progress |
 | - Wrap TL I/O                                  | Done        |
 | - Wrap CP I/O                                  | In progress |
-| - Use matplotlib for plots                     | In progress |
-| - Add usefull plots                            | In progress |
 | - Update unittest and assert                   | In progress |
 | - Possibility to compute one point at a time   | In progress |
 | ...                                            | ...         |
