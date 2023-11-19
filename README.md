@@ -87,6 +87,7 @@ to the end of your ***./bashrc*** (or ***./profile*** or ***./bashprofile***).\
 | Add scooter to arlpy                                 | Not started |
 | Add sparc to arlpy                                   | Not started |
 | Add krakel to arlpy                                  | Not started |
+| Consider using c++ version of bellhop                | Not started |
 
 ## Some results
 
