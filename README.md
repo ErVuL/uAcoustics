@@ -67,6 +67,28 @@ Add the ***pyat***, ***pyram***, ***utm*** and ***arlpy*** directories to your *
 to the end of your ***./bashrc*** (or ***./profile*** or ***./bashprofile***).\
 *For Spyder or IDEs you may have to add them to the IDE's ***$PYTHONPATH***.*
 
+## Objectives and roadmap
+
+This project aims to develop a simple to use, maintain and install python module for underwater acoustics. It will mainly use common python modules such as ***numpy***, ***scipy***, ***matplotlib*** and ***pandas***. ***ARLPY*** seems to be one of the best suited projects for such application, it will be the starting point of this one. The objective is to integrate acoustic models into ***ARLPY***, replace ***bokeh*** by ***matplotlib*** (at least at the beginning) and develop further utilities.
+
+| Roadmap                                        | Status      |
+|------------------------------------------------|-------------|
+| Make OALIB works properly                      | Done        |
+| Simpler acoustic env() in arlpy                | Done        |
+| Add PYRAM to ARLPY:                            | In progress |
+| - Wrap TL I/O                                  | Done        |
+| - Wrap CP I/O                                  | In progress |
+| - Use matplotlib for plots                     | In progress |
+| - Add usefull plots                            | In progress |
+| - Update unittest and assert                   | In progress |
+| - Possibility to compute one point at a time   | In progress |
+| ...                                            | ...         |
+| Add KRAKEN to ARLPY                            | Not started |
+| Add SCOOTER to ARLPY                           | Not started |
+| Add SPARC to ARLPY                             | Not started |
+| Add KRAKEL to ARLPY                            | Not started |
+
+
 ## About
 
 ### PYRAM
