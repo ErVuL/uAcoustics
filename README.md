@@ -1,7 +1,7 @@
 # uAcoustics
 Python/Linux underwater acoustic propagation models and toolbox using ***pyat***, ***pyram***, ***arlpy*** and the ***OALIB acoustic toolbox***.\
 \
-This project aims to develop a simple to use, maintain and install python module for underwater acoustics. It will mainly use common python modules such as ***numpy***, ***scipy***, ***matplotlib*** and ***pandas***. ***ARLPY*** seems to be one of the best suited projects for such application, it will be the starting point of this one. The main objectives are to integrate acoustic models into ***ARLPY***, replace ***bokeh*** by ***matplotlib*** (at least at the beginning) and develop further utilities.
+This project aims to develop a simple to use, maintain and install python module for underwater acoustics. It will mainly use common python modules such as ***numpy***, ***scipy***, ***matplotlib*** and ***pandas***. ***ARLPY*** seems to be one of the best suited projects for such application, it will be the starting point of this one. The main objectives are to integrate more acoustic models into ***ARLPY***, replace ***bokeh*** by ***matplotlib*** (at least at the beginning) and develop further utilities.
 
 ## Installation
 
