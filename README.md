@@ -74,15 +74,10 @@ to the end of your ***./bashrc*** (or ***./profile*** or ***./bashprofile***).\
 | TODO                                           | Status      |
 |------------------------------------------------|-------------|
 | Make oalib works properly                      | Done        |
-| Simpler acoustic env() in arlpy                | Done        |
+| Simplify acoustic env() in arlpy               | Done        |
 | Use matplotlib for plots                       | In progress |
 | Add usefull plots                              | In progress |
-| Add pyram to arlpy:                            | In progress |
-| - Wrap TL I/O                                  | Done        |
-| - Wrap CP I/O                                  | In progress |
-| - Adapt Bellhop to new settings                | Done        |
-| - Update unittest and assert                   | In progress |
-| - Possibility to compute one point at a time   | In progress |
+| Add pyram to arlpy                             | In progress |
 | ...                                            | ...         |
 | Add kraken to arlpy                            | Not started |
 | Add scooter to arlpy                           | Not started |
