@@ -81,8 +81,9 @@ to the end of your ***./bashrc*** (or ***./profile*** or ***./bashprofile***).\
 | Use matplotlib for plots                         | In progress |
 | Add usefull plots                                | In progress |
 | Add pyram to arlpy                               | In progress |
-| ...                                              | ...         |
+| Feed the signal processing and uwa modules       | Not started |
 | Add kraken to arlpy                              | Not started |
+| ...                                              | ...         |
 | Add scooter to arlpy                             | Not started |
 | Add sparc to arlpy                               | Not started |
 | Add krakel to arlpy                              | Not started |
