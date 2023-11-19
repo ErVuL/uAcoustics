@@ -71,18 +71,21 @@ to the end of your ***./bashrc*** (or ***./profile*** or ***./bashprofile***).\
 
 ## Roadmap
 
-| TODO                                           | Status      |
-|------------------------------------------------|-------------|
-| Make oalib works properly                      | Done        |
-| Simplify acoustic env() in arlpy               | Done        |
-| Use matplotlib for plots                       | In progress |
-| Add usefull plots                              | In progress |
-| Add pyram to arlpy                             | In progress |
-| ...                                            | ...         |
-| Add kraken to arlpy                            | Not started |
-| Add scooter to arlpy                           | Not started |
-| Add sparc to arlpy                             | Not started |
-| Add krakel to arlpy                            | Not started |
+| TODO                                             | Status      |
+|--------------------------------------------------|-------------|
+| Make oalib installation works properly           | Done        |
+| Update deprecated pyram types                    | Done        |
+| Simplify acoustic env() in arlpy                 | Done        |
+| Make a simple installation process               | Done        |
+| Compatibility with Spyder                        | Done        |
+| Use matplotlib for plots                         | In progress |
+| Add usefull plots                                | In progress |
+| Add pyram to arlpy                               | In progress |
+| ...                                              | ...         |
+| Add kraken to arlpy                              | Not started |
+| Add scooter to arlpy                             | Not started |
+| Add sparc to arlpy                               | Not started |
+| Add krakel to arlpy                              | Not started |
 
 
 ## About
