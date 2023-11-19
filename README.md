@@ -79,9 +79,11 @@ to the end of your ***./bashrc*** (or ***./profile*** or ***./bashprofile***).\
 | Make a simple installation process                   | Done        |
 | Compatibility with Spyder                            | Done        |
 | Use matplotlib for plots                             | In progress |
-| Add usefull plots (ellp, circ, ...) and clean        | In progress |
+| Add usefull plots and clean                          | In progress |
 | Add pyram to arlpy                                   | In progress |
-| Feed the signal processing and uwa modules           | Not started |
+| Add Wenz curves simulator                            | Not started |
+| Add PSD function                                     | Not started |
+| Add channel simulator filter using IR ?              | Not started |
 | Add kraken to arlpy                                  | Not started |
 | ...                                                  | ...         |
 | Add scooter to arlpy                                 | Not started |
