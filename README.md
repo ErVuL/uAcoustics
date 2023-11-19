@@ -67,7 +67,7 @@ Add the ***pyat***, ***pyram***, ***utm*** and ***arlpy*** directories to your *
     export PYTHONPATH="<installationPath>/uAcoustics/python/utm:$PYTHONPATH"
 
 to the end of your ***./bashrc*** (or ***./profile*** or ***./bashprofile***).\
-*For Spyder or IDEs you may have to add them to the IDE's ***$PYTHONPATH***.*
+*For Spyder or IDEs you may have to add them to the IDE's ***$PYTHONPATH***.*\
 
 ## Roadmap
 
@@ -90,6 +90,8 @@ to the end of your ***./bashrc*** (or ***./profile*** or ***./bashprofile***).\
 | Consider using c++ version of bellhop                | Not started |
 
 ## Some results
+
+Results obtain with examples available in the ***/python*** directory.
 
 ![ssp](https://github.com/ErVuL/uAcoustics/assets/45111151/5d792822-d54b-4044-a1b6-6a19d8587299)
 ![ray](https://github.com/ErVuL/uAcoustics/assets/45111151/a700f0dc-e901-48ff-819d-38f26185ed8f)
