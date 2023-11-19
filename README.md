@@ -79,7 +79,7 @@ to the end of your ***./bashrc*** (or ***./profile*** or ***./bashprofile***).\
 | Make a simple installation process                   | Done        |
 | Compatibility with Spyder                            | Done        |
 | Use matplotlib for plots                             | In progress |
-| Add usefull plots and clean                          | In progress |
+| Add useful plots and clean                           | In progress |
 | Add pyram to arlpy                                   | In progress |
 | Add Wenz curves simulator                            | Not started |
 | Add PSD function                                     | Not started |
