@@ -1,7 +1,7 @@
 # uAcoustics
 Python/Linux underwater acoustic propagation models and toolbox using ***pyat***, ***pyram***, ***arlpy*** and the ***OALIB acoustic toolbox***.\
 \
-This project aims to develop a simple to use, maintain and install python module for underwater acoustics. It will mainly use common python modules such as ***numpy***, ***scipy***, ***matplotlib*** and ***pandas***. ***ARLPY*** seems to be one of the best suited projects for such application, it will be the starting point of this one. The main objectives are to integrate more acoustic models into ***ARLPY***, replace ***bokeh*** by ***matplotlib*** (at least at the beginning) and develop further utilities.
+This project aims to develop a simple to use, maintain and install python module for underwater acoustics. It will mainly use common python modules such as ***numpy***, ***scipy***, ***matplotlib*** and ***pandas***. ***arlpy*** seems to be one of the best suited projects for such application, it will be the starting point of this one. The main objectives are to integrate more acoustic models into ***arlpy***, replace ***bokeh*** by ***matplotlib*** (at least at the beginning) and develop further utilities.
 
 ## Installation
 
@@ -73,9 +73,9 @@ to the end of your ***./bashrc*** (or ***./profile*** or ***./bashprofile***).\
 
 | TODO                                           | Status      |
 |------------------------------------------------|-------------|
-| Make OALIB works properly                      | Done        |
+| Make oalib works properly                      | Done        |
 | Simpler acoustic env() in arlpy                | Done        |
-| Add PYRAM to ARLPY:                            | In progress |
+| Add pyram to arlpy:                            | In progress |
 | - Wrap TL I/O                                  | Done        |
 | - Wrap CP I/O                                  | In progress |
 | - Use matplotlib for plots                     | In progress |
@@ -83,10 +83,10 @@ to the end of your ***./bashrc*** (or ***./profile*** or ***./bashprofile***).\
 | - Update unittest and assert                   | In progress |
 | - Possibility to compute one point at a time   | In progress |
 | ...                                            | ...         |
-| Add KRAKEN to ARLPY                            | Not started |
-| Add SCOOTER to ARLPY                           | Not started |
-| Add SPARC to ARLPY                             | Not started |
-| Add KRAKEL to ARLPY                            | Not started |
+| Add kraken to arlpy                            | Not started |
+| Add scooter to arlpy                           | Not started |
+| Add sparc to arlpy                             | Not started |
+| Add krakel to arlpy                            | Not started |
 
 
 ## About
