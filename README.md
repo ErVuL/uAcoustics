@@ -11,7 +11,7 @@ The following installation process is written for a debian based Linux OS. Teste
 
 Install some applications with the following command:
     
-    sudo apt install texlive-base gfortran cmake 
+    sudo apt install git texlive-base gfortran cmake 
 
 ### Download
 
