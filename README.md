@@ -102,7 +102,6 @@ to the end of your ***./bashrc*** (or ***./profile*** or ***./bashprofile***).\
 ![attn](https://github.com/ErVuL/uAcoustics/assets/45111151/d8a009d6-9d14-4957-ae2e-b944f6a5d1c8)
 ![arrivals](https://github.com/ErVuL/uAcoustics/assets/45111151/84a509a1-5b96-4587-8a66-c227fb9eabed)
 
-
 ## About
 
 ### PYRAM
