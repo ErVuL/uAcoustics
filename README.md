@@ -82,7 +82,8 @@ to the end of your ***./bashrc*** (or ***./profile*** or ***./bashprofile***).\
 | Add useful plots and clean                           | In progress |
 | Add pyram to arlpy                                   | In progress |
 | Add Wenz curves simulator                            | Not started |
-| Add PSD function                                     | Not started |
+| Add PSD function in dB re 1uPa/vHz (Welch)           | Not started |
+| Add spectrogram function in dB re 1uPa/vHz           | Not started |
 | Add channel simulator filter using IR ?              | Not started |
 | Add kraken to arlpy                                  | Not started |
 | ...                                                  | ...         |
