@@ -78,12 +78,13 @@ to the end of your ***./bashrc*** (or ***./profile*** or ***./bashprofile***).\
 | Simplify acoustic env() in arlpy                     | Done        |
 | Make a simple installation process                   | Done        |
 | Compatibility with Spyder                            | Done        |
+| Add basic plots                                      | Done        |
+| Add Wenz curves simulator                            | Done        |
+| Add plot PSD func in dB re 1uPa/vHz for rec signals  | Done        |
 | Use matplotlib for plots                             | In progress |
-| Add useful plots and clean                           | In progress |
 | Add pyram to arlpy                                   | In progress |
-| Add Wenz curves simulator                            | Not started |
-| Add PSD function in dB re 1uPa/vHz (Welch)           | Not started |
-| Add spectrogram function in dB re 1uPa/vHz           | Not started |
+| Add earthquakes and explosions to Wenz model         | Not started |
+| Add spectro func in dB re 1uPa/vHz for rec signals   | Not started |
 | Add channel simulator filter using IR ?              | Not started |
 | Add kraken to arlpy                                  | Not started |
 | ...                                                  | ...         |
