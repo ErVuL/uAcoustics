@@ -20,8 +20,8 @@ rain_rate      = 'light'  # 'none', 'light', 'moderate', 'heavy', or 'veryheavy'
 Fxx            = np.linspace(Fmin, Fmax, Fmax-Fmin)
 
 # Calculate noise levels
-NL = pm.compute_wenz(Fxx, wind_speed, shipping_level, shipping_depth, rain_rate)
+NL = pm.compute_wenz(Fxx, wind_speed, rain_rate, shipping_level, shipping_depth)
 
 # Plot
-pm.plot_wenz(Fxx, NL)
+pm.plot_wenz(Fxx, NL, wind_speed, rain_rate, shipping_level, shipping_depth)
 plt.show()

@@ -142,5 +142,4 @@ pm.plot_rays(eigrays, env, Title)
 pm.plot_arrivals(arrivals, env, Title, fs=96000, dB=False)
 pm.plot_ir(ir, env, Title, fs=96000)
 
-
 plt.show()
