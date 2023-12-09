@@ -81,12 +81,12 @@ to the end of your ***./bashrc*** (or ***./profile*** or ***./bashprofile***).\
 | Add basic plots                                      | Done        |
 | Add Wenz curves simulator                            | Done        |
 | Add plot PSD func in dB re 1uPa/vHz for rec signals  | Done        |
-| Use matplotlib for plots                             | In progress |
-| Add pyram to arlpy                                   | In progress |
-| Add earthquakes and explosions to Wenz model         | Not started |
+| Use matplotlib for uwapm plots                       | Done        |
+| Add pyram to arlpy                                   | Done (beta) |
 | Add spectro func in dB re 1uPa/vHz for rec signals   | Not started |
 | Add channel simulator filter using IR ?              | Not started |
 | Add kraken to arlpy                                  | Not started |
+| Add earthquakes and explosions to Wenz model         | Not started |
 | ...                                                  | ...         |
 | Add scooter to arlpy                                 | Not started |
 | Add sparc to arlpy                                   | Not started |
@@ -97,17 +97,19 @@ to the end of your ***./bashrc*** (or ***./profile*** or ***./bashprofile***).\
 
 Results obtain with examples available in the ***/python*** directory.
 
-![ssp](https://github.com/ErVuL/uAcoustics/assets/45111151/5d792822-d54b-4044-a1b6-6a19d8587299)
-![ray](https://github.com/ErVuL/uAcoustics/assets/45111151/a700f0dc-e901-48ff-819d-38f26185ed8f)
-![ram](https://github.com/ErVuL/uAcoustics/assets/45111151/cd51b9dc-163d-4044-a5c7-1fb45e520f75)
-![polar](https://github.com/ErVuL/uAcoustics/assets/45111151/c1acb1a1-558c-498b-bfe8-5fcf0e130d21)
-![mod](https://github.com/ErVuL/uAcoustics/assets/45111151/a763ddc5-382f-4c20-a7a5-8bf87047bea5)
-![kraken](https://github.com/ErVuL/uAcoustics/assets/45111151/26e4d311-5012-4d3a-ad03-02db203eeb82)
-![ir](https://github.com/ErVuL/uAcoustics/assets/45111151/b481e89d-094f-41ec-8074-13a56ea33392)
-![density](https://github.com/ErVuL/uAcoustics/assets/45111151/84467ff8-cffa-4bc0-bd03-82891725bff9)
-![bellhop](https://github.com/ErVuL/uAcoustics/assets/45111151/47080998-0a05-4997-8b82-68de0ec7c825)
-![attn](https://github.com/ErVuL/uAcoustics/assets/45111151/d8a009d6-9d14-4957-ae2e-b944f6a5d1c8)
-![arrivals](https://github.com/ErVuL/uAcoustics/assets/45111151/84a509a1-5b96-4587-8a66-c227fb9eabed)
+![wenz](https://github.com/ErVuL/uAcoustics/assets/45111151/fef498a8-183d-43bc-a42a-9307424eb0e9)
+![ssp](https://github.com/ErVuL/uAcoustics/assets/45111151/9f8a9d6c-974b-4273-a5a8-6383a5d7c0f9)
+![ray](https://github.com/ErVuL/uAcoustics/assets/45111151/4f4ea814-f96d-4786-a976-214a6176e040)
+![ram](https://github.com/ErVuL/uAcoustics/assets/45111151/5ab3c9d0-b4ce-4754-a7be-d953259d53e5)
+![polar](https://github.com/ErVuL/uAcoustics/assets/45111151/8c9b0d44-f417-4b05-84c7-13dfb0edd3b2)
+![mod](https://github.com/ErVuL/uAcoustics/assets/45111151/e8cc6c27-2aeb-4afa-8839-b55d4fcdb9d1)
+![kraken](https://github.com/ErVuL/uAcoustics/assets/45111151/d8336307-ce87-46f5-85ce-1a9e58307b0a)
+![ir](https://github.com/ErVuL/uAcoustics/assets/45111151/1fdf2738-8048-4201-8a10-3fffbc7819fe)
+![density](https://github.com/ErVuL/uAcoustics/assets/45111151/e561baf9-ec67-4d4d-aa54-feb5b12660fb)
+![bellhop](https://github.com/ErVuL/uAcoustics/assets/45111151/56e2462e-b0f3-4754-b208-2bf3e4684e7d)
+![attn](https://github.com/ErVuL/uAcoustics/assets/45111151/1576fad2-35cc-48de-95f0-4fe8d8d7a2d9)
+![arrivals](https://github.com/ErVuL/uAcoustics/assets/45111151/55c363f4-d8d4-4860-a6cc-8d51c55afd32)
+
 
 ## About
 
