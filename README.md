@@ -98,6 +98,7 @@ then update the git project and submodules with:
 | Add spectro func in dB re 1uPa/vHz for rec signals   | Not started |
 | Add channel simulator filter using IR ?              | Not started |
 | Add earthquakes and explosions to Wenz model         | Not started |
+| Maintain up to date unittest and assert in arlpy     | Not started |           
 | ...                                                  | ...         |
 | Add scooter to arlpy                                 | Not started |
 | Add sparc to arlpy                                   | Not started |
