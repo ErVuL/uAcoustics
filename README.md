@@ -69,6 +69,17 @@ Add the ***pyat***, ***pyram***, ***utm*** and ***arlpy*** directories to your *
 to the end of your ***./bashrc*** (or ***./profile*** or ***./bashprofile***).\
 *For Spyder or IDEs you may have to add them to the IDE's ***$PYTHONPATH***.*\
 
+### Update
+
+Go to your installation directory with:
+
+    cd <installationPath>/uAcoustics
+    
+then update the git project and submodules with:
+
+    git pull
+    git submodule update --remote
+
 ## Roadmap
 
 | TODO                                                 | Status      |
