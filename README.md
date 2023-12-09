@@ -55,6 +55,7 @@ This allows your shell to find fortran executable files.\
 Install some dependencies:
 
     sudo apt install python3-numpy python3-scipy python3-matplotlib python3-pandas
+    
 or if you use a ***venv***:
 
     pip3 install numpy scipy matplotlib pandas
@@ -77,13 +78,13 @@ Update the git project and submodules with:
     git pull
     git pull --recurse-submodules
 
-or erase and re-download the full project with:
+Or, erase and re-download the full project with:
 
     cd <installationPath>
     rm -rf uAcoustics
     git clone --recurse-submodules -j8 git@github.com:ErVuL/uAcoustics.git
 
-then if necessary, recompile the oalib source code with:
+Then if necessary, update and compile the oalib source code with:
 
     cp -rf <installationPath>/uAcoustics/oalib/at /opt/build
     cd /opt/build/at
@@ -91,6 +92,25 @@ then if necessary, recompile the oalib source code with:
     make all
     make install
 
+### Uninstall
+
+Remove main folders:
+
+    rm -rf <installationPath>/uAcoustics/
+    rm -rf /opt/build/at
+    
+Then clean the ***$PATH*** by editing your ***./bashrc*** (or ***./profile*** or ***./bashprofile***) and removing the following line:
+
+    export PATH="/opt/build/at/bin:$PATH"
+    export PYTHONPATH="<installationPath>/uAcoustics/python/arlpy:$PYTHONPATH"
+    export PYTHONPATH="<installationPath>/uAcoustics/python/pyram:$PYTHONPATH"
+    export PYTHONPATH="<installationPath>/uAcoustics/python/pyat:$PYTHONPATH"
+    export PYTHONPATH="<installationPath>/uAcoustics/python/utm:$PYTHONPATH"
+
+If you want to uninstall absolutely everything:
+
+    sudo apt remove -y python3-numpy python3-scipy python3-matplotlib python3-pandas git texlive-base gfortran cmake
+    
 ## Roadmap
 
 | TODO                                                 | Status      |
