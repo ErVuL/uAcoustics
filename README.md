@@ -55,6 +55,7 @@ This allows your shell to find fortran executable files.\
 Install some dependencies:
 
     sudo apt install python3-numpy python3-scipy python3-matplotlib python3-pandas
+    
 or if you use a ***venv***:
 
     pip3 install numpy scipy matplotlib pandas
@@ -69,17 +70,52 @@ Add the ***pyat***, ***pyram***, ***utm*** and ***arlpy*** directories to your *
 to the end of your ***./bashrc*** (or ***./profile*** or ***./bashprofile***).\
 *For Spyder or IDEs you may have to add them to the IDE's ***$PYTHONPATH***.*\
 
-### Update
-
-Go to your installation directory with:
+## Update
+  
+Update the git project and submodules with:
 
     cd <installationPath>/uAcoustics
-    
-then update the git project and submodules with:
-
     git pull
     git pull --recurse-submodules
 
+Or, erase and re-download the full project with:
+
+    cd <installationPath>
+    rm -rf uAcoustics
+    git clone --recurse-submodules -j8 git@github.com:ErVuL/uAcoustics.git
+
+Then if necessary, update and compile the oalib source code with:
+
+    cp -rf <installationPath>/uAcoustics/oalib/at /opt/build
+    cd /opt/build/at
+    make clean
+    make all
+    make install
+
+## Uninstall
+
+Remove main folders and dependencies:
+
+    rm -rf <installationPath>/uAcoustics/
+    rm -rf /opt/build/at
+    sudo apt remove -y git texlive-base gfortran cmake
+    
+Then clean the ***$PATH*** and ***$PYTHONPATH*** by editing your ***./bashrc*** (or ***./profile*** or ***./bashprofile***) and removing the following line:
+
+    export PATH="/opt/build/at/bin:$PATH"
+    export PYTHONPATH="<installationPath>/uAcoustics/python/arlpy:$PYTHONPATH"
+    export PYTHONPATH="<installationPath>/uAcoustics/python/pyram:$PYTHONPATH"
+    export PYTHONPATH="<installationPath>/uAcoustics/python/pyat:$PYTHONPATH"
+    export PYTHONPATH="<installationPath>/uAcoustics/python/utm:$PYTHONPATH"
+
+To remove python modules use:
+
+    sudo apt remove -y python3-numpy python3-scipy python3-matplotlib python3-pandas 
+
+Or:
+
+    pip3 uninstall numpy scipy matplotlib pandas
+    
 ## Roadmap
 
 | TODO                                                 | Status      |
@@ -94,10 +130,11 @@ then update the git project and submodules with:
 | Add plot PSD func in dB re 1uPa/vHz for rec signals  | Done        |
 | Use matplotlib for uwapm plots                       | Done        |
 | Add pyram to arlpy                                   | Done (beta) |
+| Add kraken to arlpy                                  | In progress |
 | Add spectro func in dB re 1uPa/vHz for rec signals   | Not started |
 | Add channel simulator filter using IR ?              | Not started |
-| Add kraken to arlpy                                  | Not started |
 | Add earthquakes and explosions to Wenz model         | Not started |
+| Maintain up to date unittest and assert in arlpy     | Not started |           
 | ...                                                  | ...         |
 | Add scooter to arlpy                                 | Not started |
 | Add sparc to arlpy                                   | Not started |
@@ -108,7 +145,7 @@ then update the git project and submodules with:
 
 Results obtain with examples available in the ***/python*** directory.
 
-![wenz](https://github.com/ErVuL/uAcoustics/assets/45111151/fef498a8-183d-43bc-a42a-9307424eb0e9)
+![wenz](https://github.com/ErVuL/uAcoustics/assets/45111151/0fa2cab8-fbf7-4fb0-8aa3-bfd7745f0546)
 ![ssp](https://github.com/ErVuL/uAcoustics/assets/45111151/9f8a9d6c-974b-4273-a5a8-6383a5d7c0f9)
 ![ray](https://github.com/ErVuL/uAcoustics/assets/45111151/4f4ea814-f96d-4786-a976-214a6176e040)
 ![ram](https://github.com/ErVuL/uAcoustics/assets/45111151/5ab3c9d0-b4ce-4754-a7be-d953259d53e5)
