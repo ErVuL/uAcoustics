@@ -13,9 +13,9 @@ rc('text', usetex=True)
 # Settings
 Fmin           = 1        # Minimum frequency in Hz
 Fmax           = 100000   # Maximum frequency in Hz
-wind_speed     = 5       # Wind speed in knots
+wind_speed     = 5        # Wind speed in knots
 shipping_depth = 'deep'   # 'shallow' or 'deep'
-shipping_level = 'low' # 'low', 'medium', or 'high'
+shipping_level = 'low'   # 'none, 'low', 'medium', or 'high'
 rain_rate      = 'light'  # 'none', 'light', 'moderate', 'heavy', or 'veryheavy'
 Fxx            = np.linspace(Fmin, Fmax, Fmax-Fmin)
 
