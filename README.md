@@ -94,9 +94,9 @@ then update the git project and submodules with:
 | Add plot PSD func in dB re 1uPa/vHz for rec signals  | Done        |
 | Use matplotlib for uwapm plots                       | Done        |
 | Add pyram to arlpy                                   | Done (beta) |
+| Add kraken to arlpy                                  | In progress |
 | Add spectro func in dB re 1uPa/vHz for rec signals   | Not started |
 | Add channel simulator filter using IR ?              | Not started |
-| Add kraken to arlpy                                  | Not started |
 | Add earthquakes and explosions to Wenz model         | Not started |
 | ...                                                  | ...         |
 | Add scooter to arlpy                                 | Not started |
