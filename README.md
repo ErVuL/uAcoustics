@@ -94,10 +94,11 @@ Then if necessary, update and compile the oalib source code with:
 
 ### Uninstall
 
-Remove main folders:
+Remove main folders and dependencies:
 
     rm -rf <installationPath>/uAcoustics/
     rm -rf /opt/build/at
+    sudo apt remove -y git texlive-base gfortran cmake
     
 Then clean the ***$PATH*** by editing your ***./bashrc*** (or ***./profile*** or ***./bashprofile***) and removing the following line:
 
@@ -107,9 +108,13 @@ Then clean the ***$PATH*** by editing your ***./bashrc*** (or ***./profile*** or
     export PYTHONPATH="<installationPath>/uAcoustics/python/pyat:$PYTHONPATH"
     export PYTHONPATH="<installationPath>/uAcoustics/python/utm:$PYTHONPATH"
 
-If you want to uninstall absolutely everything:
+To remove python modules use:
 
-    sudo apt remove -y python3-numpy python3-scipy python3-matplotlib python3-pandas git texlive-base gfortran cmake
+    sudo apt remove -y python3-numpy python3-scipy python3-matplotlib python3-pandas 
+
+Or:
+
+    pip3 uninstall numpy scipy matplotlib pandas
     
 ## Roadmap
 
