@@ -70,7 +70,7 @@ Add the ***pyat***, ***pyram***, ***utm*** and ***arlpy*** directories to your *
 to the end of your ***./bashrc*** (or ***./profile*** or ***./bashprofile***).\
 *For Spyder or IDEs you may have to add them to the IDE's ***$PYTHONPATH***.*\
 
-### Update
+## Update
   
 Update the git project and submodules with:
 
@@ -92,7 +92,7 @@ Then if necessary, update and compile the oalib source code with:
     make all
     make install
 
-### Uninstall
+## Uninstall
 
 Remove main folders and dependencies:
 
