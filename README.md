@@ -100,7 +100,7 @@ Remove main folders and dependencies:
     rm -rf /opt/build/at
     sudo apt remove -y git texlive-base gfortran cmake
     
-Then clean the ***$PATH*** by editing your ***./bashrc*** (or ***./profile*** or ***./bashprofile***) and removing the following line:
+Then clean the ***$PATH*** and ***$PYTHONPATH*** by editing your ***./bashrc*** (or ***./profile*** or ***./bashprofile***) and removing the following line:
 
     export PATH="/opt/build/at/bin:$PATH"
     export PYTHONPATH="<installationPath>/uAcoustics/python/arlpy:$PYTHONPATH"
