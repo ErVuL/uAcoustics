@@ -55,7 +55,7 @@ This allows your shell to find fortran executable files.\
 Install some dependencies:
 
     sudo apt install python3-numpy python3-scipy python3-matplotlib python3-pandas
-or:
+or if you use a ***venv***:
 
     pip3 install numpy scipy matplotlib pandas
 
