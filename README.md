@@ -70,15 +70,26 @@ to the end of your ***./bashrc*** (or ***./profile*** or ***./bashprofile***).\
 *For Spyder or IDEs you may have to add them to the IDE's ***$PYTHONPATH***.*\
 
 ### Update
-
-Go to your installation directory with:
+  
+Update the git project and submodules with:
 
     cd <installationPath>/uAcoustics
-    
-then update the git project and submodules with:
-
     git pull
     git pull --recurse-submodules
+
+or erase and re-download the full project with:
+
+    cd <installationPath>
+    rm -rf uAcoustics
+    git clone --recurse-submodules -j8 git@github.com:ErVuL/uAcoustics.git
+
+then if necessary, recompile the oalib source code with:
+
+    cp -rf <installationPath>/uAcoustics/oalib/at /opt/build
+    cd /opt/build/at
+    make clean
+    make all
+    make install
 
 ## Roadmap
 
