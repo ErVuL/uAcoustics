@@ -32,7 +32,7 @@ Then download the entire project with:
 The acoustic toolbox from OALIB is in fortran, the installation is done in ***/opt/build*** with the following commands:
 
     mkdir /opt/build
-    cp -r oalib/at /opt/build
+    mv oalib/at /opt/build
     cd /opt/build/at
     make clean
     make all
