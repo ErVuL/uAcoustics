@@ -145,7 +145,7 @@ Or:
 
 Results obtain with examples available in the ***/python*** directory.
 
-![wenz](https://github.com/ErVuL/uAcoustics/assets/45111151/0fa2cab8-fbf7-4fb0-8aa3-bfd7745f0546)
+![wenz](https://github.com/ErVuL/uAcoustics/assets/45111151/14332a57-4219-4f04-bd4d-9a13fbb6a2ee)
 ![ssp](https://github.com/ErVuL/uAcoustics/assets/45111151/9f8a9d6c-974b-4273-a5a8-6383a5d7c0f9)
 ![ray](https://github.com/ErVuL/uAcoustics/assets/45111151/4f4ea814-f96d-4786-a976-214a6176e040)
 ![ram](https://github.com/ErVuL/uAcoustics/assets/45111151/5ab3c9d0-b4ce-4754-a7be-d953259d53e5)
