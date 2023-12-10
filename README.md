@@ -131,6 +131,7 @@ Or:
 | Use matplotlib for uwapm plots                       | Done        |
 | Add pyram to arlpy                                   | Done (beta) |
 | Add kraken to arlpy                                  | In progress |
+| Manage all options for Bellhop, Kraken and RAM       | Not started |
 | Add spectro func in dB re 1uPa/vHz for rec signals   | Not started |
 | Add channel simulator filter using IR ?              | Not started |
 | Add earthquakes and explosions to Wenz model         | Not started |
