@@ -108,7 +108,7 @@ env = pm.create_env2d(
     tx_directionality  = beampattern,
     rx_depth           = z,
     rx_range           = x,  
-    nmedia             = 3
+    nmedia             = 1                      # Number of media excluding upper and lower half-space
 )
 
 ########################
