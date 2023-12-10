@@ -16,8 +16,8 @@ Fmin           = 1        # Minimum frequency in Hz
 Fmax           = 100000   # Maximum frequency in Hz
 wind_speed     = 5        # Wind speed in knots
 water_depth    = 'deep'   # 'shallow' or 'deep' 
-shipping_level = 'low'    # 'none, 'low', 'medium', or 'high'
-rain_rate      = 'light'  # 'none', 'light', 'moderate', 'heavy', or 'veryheavy'
+shipping_level = 'low'    # 'no, 'low', 'medium', or 'high'
+rain_rate      = 'light'  # 'no', 'light', 'moderate', 'heavy', or 'veryheavy'
 Fxx            = np.linspace(Fmin, Fmax, Fmax-Fmin)
 
 # Compute noise levels
