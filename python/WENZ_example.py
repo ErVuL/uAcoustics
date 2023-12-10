@@ -11,17 +11,20 @@ rc('font',**{'family':'sans-serif','sans-serif':['Helvetica']})
 rc('text', usetex=True)
 
 # Settings
+##########
 Fmin           = 1        # Minimum frequency in Hz
 Fmax           = 100000   # Maximum frequency in Hz
 wind_speed     = 5        # Wind speed in knots
-shipping_depth = 'deep'   # 'shallow' or 'deep'
-shipping_level = 'low'   # 'none, 'low', 'medium', or 'high'
+water_depth    = 'deep'   # 'shallow' or 'deep' 
+shipping_level = 'low'    # 'none, 'low', 'medium', or 'high'
 rain_rate      = 'light'  # 'none', 'light', 'moderate', 'heavy', or 'veryheavy'
 Fxx            = np.linspace(Fmin, Fmax, Fmax-Fmin)
 
-# Calculate noise levels
-NL = pm.compute_wenz(Fxx, wind_speed, rain_rate, shipping_level, shipping_depth)
+# Compute noise levels
+######################
+NL = pm.compute_wenz(Fxx, wind_speed, rain_rate, water_depth, shipping_level)
 
 # Plot
-pm.plot_wenz(Fxx, NL, wind_speed, rain_rate, shipping_level, shipping_depth)
+######
+pm.plot_wenz(Fxx, NL, wind_speed, rain_rate, water_depth, shipping_level)
 plt.show()
