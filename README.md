@@ -86,7 +86,8 @@ Or, erase and re-download the full project with:
 
 Then if necessary, update and compile the oalib source code with:
 
-    cp -rf <installationPath>/uAcoustics/oalib/at /opt/build
+    rm -rf /opt/build/at
+    cp -r <installationPath>/uAcoustics/oalib/at /opt/build
     cd /opt/build/at
     make clean
     make all
