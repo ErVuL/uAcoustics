@@ -116,6 +116,6 @@ env = pm.create_env2d(
 ########################
 
 env['model'] = 'KRAKEN'
-tloss =  pm.compute_transmission_loss(env) 
+tloss =  pm.compute_transmission_loss(env, debug=True) 
 
 plt.show()
