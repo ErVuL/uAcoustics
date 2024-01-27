@@ -115,13 +115,24 @@ if __name__ == '__main__':
     ### Compute and plot ###
     ########################
     
-    # RAM
-    env['model'] = 'RAM'
-    tloss = pm.compute_transmission_loss(env)
+    # Bellhop for comparison
+    env['model'] = 'BELLHOP'
+    tloss = pm.compute_transmission_loss(env, mode='coherent')
     pm.plot_transmission_loss(tloss, env, Title, vmin=-120, vmax=0)
     pm.plot_soundspeed(env, Title, vmin=1400, vmax=1700)
     pm.plot_absorption(env, Title)
     pm.plot_density(env, Title)
     pm.plot_beam(env, Title)
-        
+    
+    # Rays and arrivals for a single rx position
+    env['rx_range'] = 20000
+    env['rx_depth'] = 1000
+    rays     = pm.compute_rays(env)
+    eigrays  = pm.compute_eigenrays(env)
+    arrivals = pm.compute_arrivals(env)
+    ir       = pm.arrivals_to_impulse_response(arrivals, fs=96000)
+    pm.plot_rays(eigrays, env, Title)
+    pm.plot_arrivals(arrivals, env, Title, fs=96000, dB=False)
+    pm.plot_ir(ir, env, Title, fs=96000)
+    
     plt.show()
