@@ -134,10 +134,10 @@ Or:
 | Add kraken to arlpy                                  | In progress |
 | Manage all options for Bellhop, Kraken and RAM       | Not started |
 | Add spectro func in dB re 1uPa/vHz for rec signals   | Not started |
-| Add statistical spectrogram                          | Not started |
+| Add statistical spectrogram in dB re 1uPa/vHz        | Not started |
 | Add channel simulator filter using IR ?              | Not started |
 | Add earthquakes and explosions to Wenz model         | Not started |
-| Maintain up to date unittest and assert in arlpy     | Not started |           
+| Maintain up to date unittest and assert in arlpy     | Not started |
 | ...                                                  | ...         |
 | Add scooter to arlpy                                 | Not started |
 | Add sparc to arlpy                                   | Not started |
