@@ -68,7 +68,7 @@ Add the ***pyat***, ***pyram***, ***utm*** and ***arlpy*** directories to your *
     export PYTHONPATH="<installationPath>/uAcoustics/python/utm:$PYTHONPATH"
 
 to the end of your ***./bashrc*** (or ***./profile*** or ***./bashprofile***).\
-*For Spyder or IDEs you may have to add them to the IDE's ***$PYTHONPATH***.*\
+*For Spyder or IDEs you may have to add them to the IDE's ***$PYTHONPATH***.*
 
 ## Update
   
