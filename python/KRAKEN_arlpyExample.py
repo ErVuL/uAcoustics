@@ -3,6 +3,7 @@ import numpy as np
 import os 
 import matplotlib.pyplot as plt
 from matplotlib import rc
+import pyat.env as at
 os.environ['PATH'] = os.environ['PATH'].replace(':/opt/build/at/bin', '')+":/opt/build/at/bin"
 rc('font',**{'family':'sans-serif','sans-serif':['Helvetica']})
 rc('text', usetex=True)
@@ -100,11 +101,15 @@ if __name__ == '__main__':
         soundspeed         = soundspeed,
         soundspeed_range   = ssp_range,
         soundspeed_depth   = ssp_depth,
+        soundspeed_interp  = 'c-linear',
+        topBdry            = 'vacuum',
         bottom_soundspeed  = bottom_soundspeed,
         bottom_density     = bottom_density,
         bottom_absorption  = bottom_absorption,
         bottom_sdepth      = bottom_sdepth,        
         bottom_srange      = bottom_srange,
+        bottom_roughness   = 0,
+        botBdry            = 'analytic',
         frequency          = frequency,
         tx_depth           = tx_depth,
         tx_directionality  = beampattern,
@@ -120,5 +125,5 @@ if __name__ == '__main__':
     env['model'] = 'KRAKEN'
     tloss = pm.compute_transmission_loss(env, debug=True)
     modes = pm.compute_modes(env, debug=True) 
-    
+    at.plot_mod(modes, 5, Title)
     plt.show()
