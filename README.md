@@ -97,7 +97,7 @@ Then if necessary, update and compile the oalib source code with:
 
 Remove main folders and dependencies:
 
-    rm -rf <installationPath>/uAcoustics/
+    rm -rf <installationPath>/uAcoustics
     rm -rf /opt/build/at
     sudo apt remove -y git texlive-base gfortran cmake
     
