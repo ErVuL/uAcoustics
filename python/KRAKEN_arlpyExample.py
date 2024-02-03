@@ -1,12 +1,6 @@
 import arlpy.uwapm as pm
 import numpy as np
-import os 
-import matplotlib.pyplot as plt
-from matplotlib import rc
 import pyat.env as at
-os.environ['PATH'] = os.environ['PATH'].replace(':/opt/build/at/bin', '')+":/opt/build/at/bin"
-rc('font',**{'family':'sans-serif','sans-serif':['Helvetica']})
-rc('text', usetex=True)
 
 
 if __name__ == '__main__':
@@ -96,6 +90,7 @@ if __name__ == '__main__':
     ####################
     
     env = pm.create_env2d(
+        model              = 'KRAKEN',
         depth              = bathy,
         surface            = surface,
         soundspeed         = soundspeed,
@@ -118,12 +113,16 @@ if __name__ == '__main__':
         nmedia             = 1                      # Number of media excluding upper and lower half-space
     )
     
-    ########################
-    ### Compute and plot ###
-    ########################
-    
-    env['model'] = 'KRAKEN'
+    ###############
+    ### Compute ###
+    ###############
+
     tloss = pm.compute_transmission_loss(env, debug=True)
     modes = pm.compute_modes(env, debug=True) 
+    
+    ############
+    ### Plot ###
+    ############
+    
     at.plot_mod(modes, 5, Title)
-    plt.show()
+    
