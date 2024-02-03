@@ -134,6 +134,7 @@ Or:
 | Add kraken to arlpy                                  | In progress |
 | Make a simple installation process for venv          | Not started |
 | Add requirements.txt file for pip                    | Not started |
+| Remove pyat from the project                         | Not started |
 | Add spectro func in dB re 1uPa/vHz for rec signals   | Not started |
 | Add statistical spectrogram in dB re 1uPa/vHz        | Not started |
 | Add channel simulator filter using IR                | Not started |
