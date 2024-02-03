@@ -124,7 +124,10 @@ Or:
 | Update deprecated pyram types                        | Done        |
 | Simplify acoustic env() in arlpy                     | Done        |
 | Make a simple installation process                   | Done        |
+| Make a simple installation process for venv          | Not started |
+| Add requirements.txt file for pip                    | Not started |
 | Compatibility with Spyder                            | Done        |
+| Add BSD 3 license                                    | Done        |
 | Add basic plots                                      | Done        |
 | Add Wenz curves simulator                            | Done        |
 | Add plot PSD func in dB re 1uPa/vHz for rec signals  | Done        |
@@ -134,9 +137,10 @@ Or:
 | Manage all options for Bellhop, Kraken and RAM       | Not started |
 | Add spectro func in dB re 1uPa/vHz for rec signals   | Not started |
 | Add statistical spectrogram in dB re 1uPa/vHz        | Not started |
-| Add channel simulator filter using IR ?              | Not started |
+| Add channel simulator filter using IR                | Not started |
 | Add earthquakes and explosions to Wenz model         | Not started |
 | Maintain up to date unittest and assert in arlpy     | Not started |
+| Maintain up to date function and class comments      | Not started |
 | ...                                                  | ...         |
 | Add scooter to arlpy                                 | Not started |
 | Add sparc to arlpy                                   | Not started |
