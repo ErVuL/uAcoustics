@@ -113,7 +113,7 @@ if __name__ == '__main__':
     tloss = pm.compute_transmission_loss(env, mode='coherent')
     
     pm.plot_transmission_loss(tloss, env, Title, vmin=-120, vmax=0)
-    pm.plot_soundspeed(env, Title, vmin=1400, vmax=1700)
+    pm.plot_soundspeed_map(env, Title, vmin=1400, vmax=1700)
     pm.plot_absorption(env, Title)
     pm.plot_density(env, Title)
     pm.plot_beam(env, Title)
