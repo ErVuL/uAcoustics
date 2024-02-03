@@ -38,7 +38,7 @@ The acoustic toolbox from OALIB is in fortran, the installation is done in ***/o
     make all
     make install
 
-you may have to "sudo" some commands but avoid it if not necessary. If you choose to install the acoustic toolbox somewhere else, you will have to modify ***<installationPath>/uAcoustics/python/arlpy/arlpyuwapm.py*** specifying your installation path by editing the line:
+you may have to "sudo" some commands but avoid it if not necessary. If you choose to install the acoustic toolbox somewhere else, you will have to modify ***uAcoustics/python/arlpy/arlpy/uwapm.py*** specifying your installation path by editing the line:
 
     # Add acoustic toolbox path to Python path
     os.environ['PATH'] = os.environ['PATH'].replace(':/opt/build/at/bin', '')+":/opt/build/at/bin"
