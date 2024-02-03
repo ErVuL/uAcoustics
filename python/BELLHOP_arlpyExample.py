@@ -1,12 +1,5 @@
 import arlpy.uwapm as pm
 import numpy as np
-import os 
-import matplotlib.pyplot as plt
-from matplotlib import rc
-os.environ['PATH'] = os.environ['PATH'].replace(':/opt/build/at/bin', '')+":/opt/build/at/bin"
-rc('font',**{'family':'sans-serif','sans-serif':['Helvetica']})
-rc('text', usetex=True)
-
 
 if __name__ == '__main__':
 
@@ -94,6 +87,7 @@ if __name__ == '__main__':
     ####################
     
     env = pm.create_env2d(
+        model              = 'BELLHOP',
         depth              = bathy,
         surface            = surface,
         soundspeed         = soundspeed,
@@ -115,9 +109,9 @@ if __name__ == '__main__':
     ### Compute and plot ###
     ########################
     
-    # Bellhop for comparison
-    env['model'] = 'BELLHOP'
+    # Transmission Loss
     tloss = pm.compute_transmission_loss(env, mode='coherent')
+    
     pm.plot_transmission_loss(tloss, env, Title, vmin=-120, vmax=0)
     pm.plot_soundspeed(env, Title, vmin=1400, vmax=1700)
     pm.plot_absorption(env, Title)
@@ -135,4 +129,3 @@ if __name__ == '__main__':
     pm.plot_arrivals(arrivals, env, Title, fs=96000, dB=False)
     pm.plot_ir(ir, env, Title, fs=96000)
     
-    plt.show()

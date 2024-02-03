@@ -1,11 +1,6 @@
 import arlpy.uwapm as pm
 import numpy as np
-import os 
-import matplotlib.pyplot as plt
-from matplotlib import rc
-os.environ['PATH'] = os.environ['PATH'].replace(':/opt/build/at/bin', '')+":/opt/build/at/bin"
-rc('font',**{'family':'sans-serif','sans-serif':['Helvetica']})
-rc('text', usetex=True)
+import pyat.env as at
 
 
 if __name__ == '__main__':
@@ -95,16 +90,21 @@ if __name__ == '__main__':
     ####################
     
     env = pm.create_env2d(
+        model              = 'KRAKEN',
         depth              = bathy,
         surface            = surface,
         soundspeed         = soundspeed,
         soundspeed_range   = ssp_range,
         soundspeed_depth   = ssp_depth,
+        soundspeed_interp  = 'c-linear',
+        topBdry            = 'vacuum',
         bottom_soundspeed  = bottom_soundspeed,
         bottom_density     = bottom_density,
         bottom_absorption  = bottom_absorption,
         bottom_sdepth      = bottom_sdepth,        
         bottom_srange      = bottom_srange,
+        bottom_roughness   = 0,
+        botBdry            = 'analytic',
         frequency          = frequency,
         tx_depth           = tx_depth,
         tx_directionality  = beampattern,
@@ -113,12 +113,16 @@ if __name__ == '__main__':
         nmedia             = 1                      # Number of media excluding upper and lower half-space
     )
     
-    ########################
-    ### Compute and plot ###
-    ########################
-    
-    env['model'] = 'KRAKEN'
+    ###############
+    ### Compute ###
+    ###############
+
     tloss = pm.compute_transmission_loss(env, debug=True)
     modes = pm.compute_modes(env, debug=True) 
     
-    plt.show()
+    ############
+    ### Plot ###
+    ############
+    
+    at.plot_mod(modes, 5, Title)
+    
