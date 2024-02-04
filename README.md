@@ -133,6 +133,7 @@ Or:
 | Add pyram to arlpy                                   | Done (beta) |
 | Add kraken to arlpy                                  | In progress |
 | Update plots for Kraken (not range dependant)        | Not started |
+| Make a separate file for plot functions              | Not started |
 | Make a simple installation process for venv          | Not started |
 | Add requirements.txt file for pip                    | Not started |
 | Remove pyat from the project                         | Not started |
