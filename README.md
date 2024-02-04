@@ -144,6 +144,7 @@ Or:
 | Manage all options for Bellhop, Kraken and RAM       | Not started |
 | Maintain up to date unittest and assert in arlpy     | Not started |
 | Maintain up to date function and class comments      | Not started |
+| Create Jupyter notebooks tutorials for each model    | Not started |
 | Add earthquakes and explosions to Wenz model         | Not started |
 | Consider Windows compatibility                       | Not started |
 | ...                                                  | ...         |
