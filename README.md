@@ -132,7 +132,7 @@ Or:
 | Use matplotlib for uwapm plots                       | Done        |
 | Add pyram to arlpy                                   | Done (beta) |
 | Add kraken to arlpy                                  | In progress |
-| Update plots for Kraken (not range dependant)        | Not started |
+| Update plots for Kraken                              | Not started |
 | Make a separate file for plot functions              | Not started |
 | Make a simple installation process for venv          | Not started |
 | Add requirements.txt file for pip                    | Not started |
@@ -145,6 +145,7 @@ Or:
 | Maintain up to date unittest and assert in arlpy     | Not started |
 | Maintain up to date function and class comments      | Not started |
 | Add earthquakes and explosions to Wenz model         | Not started |
+| Consider Windows compatibility                       | Not started |
 | ...                                                  | ...         |
 | Add scooter to arlpy                                 | Not started |
 | Add sparc to arlpy                                   | Not started |
