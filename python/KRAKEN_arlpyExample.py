@@ -36,7 +36,7 @@ if __name__ == '__main__':
     ### Sound speed in water column ###
     ###################################
     
-    ssp_depth = [z[0], 25, 75, 90, z[-1]]
+    ssp_depth = [0, 25, 75, 90, z[-1]] # Must start at 0
     ssp_range = [0, 100]
     
     soundspeed = [
@@ -69,13 +69,8 @@ if __name__ == '__main__':
     #######################
     
     bottom_sdepth = [75, 100]
-    bottom_srange = [0,   1000]
+    bottom_absorption = [10, 15]
     
-    
-    bottom_absorption = [
-        [10, 12],
-        [15, 11]
-    ]
     bottom_soundspeed = [
         [1600, 1550],
         [1700, 1650]
@@ -90,27 +85,26 @@ if __name__ == '__main__':
     ####################
     
     env = pm.create_env2d(
-        model              = 'KRAKEN',
-        depth              = bathy,
-        surface            = surface,
-        soundspeed         = soundspeed,
-        soundspeed_range   = ssp_range,
-        soundspeed_depth   = ssp_depth,
-        soundspeed_interp  = 'c-linear',
-        topBdry            = 'vacuum',
-        bottom_soundspeed  = bottom_soundspeed,
-        bottom_density     = bottom_density,
-        bottom_absorption  = bottom_absorption,
-        bottom_sdepth      = bottom_sdepth,        
-        bottom_srange      = bottom_srange,
-        bottom_roughness   = 0,
-        botBdry            = 'analytic',
-        frequency          = frequency,
-        tx_depth           = tx_depth,
-        tx_directionality  = beampattern,
-        rx_depth           = z,
-        rx_range           = x,  
-        nmedia             = 1                      # Number of media excluding upper and lower half-space
+        model                      = 'KRAKEN',
+        depth                      = bathy,
+        surface                    = surface,
+        soundspeed                 = soundspeed,
+        soundspeed_range           = ssp_range,
+        soundspeed_depth           = ssp_depth,
+        soundspeed_interp          = 'c-linear',
+        top_boundary               = 'vacuum',
+        bottom_soundspeed          = bottom_soundspeed,
+        bottom_density             = bottom_density,
+        bottom_absorption          = bottom_absorption,
+        bottom_sdepth              = bottom_sdepth,        
+        bottom_roughness_interface = 10,
+        bottom_boundary            = 'rigid',
+        frequency                  = frequency,
+        tx_depth                   = tx_depth,
+        tx_directionality          = beampattern,
+        rx_depth                   = z,
+        rx_range                   = x,  
+        nmedia                     = 3 # water, bottom1, bottom2
     )
     
     ###############

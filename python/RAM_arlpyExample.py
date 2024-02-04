@@ -69,7 +69,7 @@ if __name__ == '__main__':
     bottom_sdepth = [2500, 3000]
     bottom_srange = [0,   10000]
     
-    bottom_absorption = [
+    bottom_attenuation = [
         [10, 12],
         [15, 11]
     ]
@@ -95,7 +95,7 @@ if __name__ == '__main__':
         soundspeed_depth   = ssp_depth,
         bottom_soundspeed  = bottom_soundspeed,
         bottom_density     = bottom_density,
-        bottom_absorption  = bottom_absorption,
+        bottom_attenuation = bottom_attenuation,
         bottom_sdepth      = bottom_sdepth,        
         bottom_srange      = bottom_srange,
         frequency          = frequency,
