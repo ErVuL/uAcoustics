@@ -132,9 +132,8 @@ Or:
 | Use matplotlib for uwapm plots                       | Done        |
 | Add pyram to arlpy                                   | Done (beta) |
 | Add kraken to arlpy                                  | In progress |
-| Redefine class for simpler call and separate env ?   | Not started |
+| Redefine class for simpler call and separate env     | In progress |
 | Update plots for Kraken                              | Not started |
-| Make a separate file for plot functions              | Not started |
 | Make a simple installation process for venv          | Not started |
 | Add requirements.txt file for pip                    | Not started |
 | Remove pyat from the project                         | Not started |
@@ -143,6 +142,7 @@ Or:
 | Add statistical spectrogram in dB re 1uPa/vHz        | Not started |
 | Add channel simulator filter using IR ?              | Not started |
 | Manage all options for Bellhop, Kraken and RAM       | Not started |
+| Add Krakenc to arlpy                                 | Not started |
 | Maintain up to date unittest and assert in arlpy     | Not started |
 | Maintain up to date function and class comments      | Not started |
 | Create Jupyter notebooks tutorials for each model    | Not started |
@@ -151,7 +151,6 @@ Or:
 | ...                                                  | ...         |
 | Add scooter to arlpy                                 | Not started |
 | Add sparc to arlpy                                   | Not started |
-| Add krakel to arlpy                                  | Not started |
 | Consider using c++ version of bellhop                | Not started |
 
 ## Some results
