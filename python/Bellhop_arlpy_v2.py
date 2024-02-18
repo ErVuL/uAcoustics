@@ -9,20 +9,20 @@ if __name__ == '__main__':
     ### Grid ###
     ############
     
-    x = np.linspace(0, 35000, 1250)
-    z = np.linspace(0, 3000,  1500)
+    x = np.linspace(0, 35000, 10)
+    z = np.linspace(0, 3000,  10)
     
     #############
     ### Bathy ###
     #############
     
-    bathy = [
-        [x[0],  2500],  
+    bathy = np.array([
+        [0,     2500],  
         [10000, 3000],
         [20000, 2000],  
         [30000, 2500], 
         [x[-1], 3000]  
-    ]
+    ])
     
     ###############
     ### Surface ###
@@ -34,15 +34,23 @@ if __name__ == '__main__':
     ### Sound speed in water column ###
     ###################################
     
-    ssp_depth  = [z[0], 1000, 2000, 2500, z[-1]]
-    soundspeed = [1527, 1400, 1540, 1526, 1525]
+    ssp_depth = [0, 1000, 2000, 2500, z[-1]]
+    ssp_range = [0, x[-1]]
+    
+    soundspeed = [
+        [1527,  1532],
+        [1400,  1400],
+        [1540,  1600], 
+        [1526,  1526],
+        [1525,  1525]  
+    ]
     
     ####################
     ### Source specs ###
     ####################
     
     tx_depth  = 500
-    frequency = 500
+    frequency = 5000
     
     beampattern = np.array([
         [-180,  10], [-170, -10], [-160,   0], [-150, -20], [-140, -10], [-130, -30],
@@ -58,32 +66,39 @@ if __name__ == '__main__':
     ### Bottom settings ###
     #######################
     
-    bottom_sdepth = [2500, 3000]
-    bottom_srange = [0,   10000]
+    bottom_sdepth = np.array([2500, 3000])
+    bottom_srange = np.array([0,   10000])
     
-    bottom_absorption = [
+    bottom_absorption = np.array([
         [10, 12],
         [15, 11]
-    ]
-    bottom_soundspeed = [
+    ])
+    bottom_soundspeed = np.array([
         [1600, 1550],
         [1700, 1650]
-    ]
-    bottom_density = [
+    ])
+    bottom_density = np.array([
         [1200, 1700],
         [1500, 1650]
-    ]
+    ])
+    
+    ##########################
+    ### Init Bellhop class ###
+    ##########################
+    
+    Bellhop = pm.bellhop()
     
     ####################
     ### Generate env ###
     ####################
-    Bellhop = pm.bellhop()
     
     Bellhop.create_env(
+        mode               = 'coherent', 
         depth              = bathy,
         surface            = surface,
         soundspeed         = soundspeed,
         soundspeed_depth   = ssp_depth,
+        soundspeed_range   = ssp_range,
         bottom_soundspeed  = bottom_soundspeed,
         bottom_density     = bottom_density,
         bottom_absorption  = bottom_absorption,
