@@ -9,8 +9,8 @@ if __name__ == '__main__':
     ### Grid ###
     ############
     
-    x = np.linspace(0, 35000, 1250)
-    z = np.linspace(0, 3000,  1500)
+    x = np.linspace(0, 35000, 10)
+    z = np.linspace(0, 3000,  10)
     
     #############
     ### Bathy ###
@@ -37,20 +37,20 @@ if __name__ == '__main__':
     ssp_depth = [z[0], 1000, 2000, 2500, z[-1]]
     ssp_range = [0, 10000]
     
-    soundspeed = [
+    soundspeed = np.array([
         [1527,  1532],
         [1400,  1400],
         [1540,  1600], 
         [1526,  1526],
         [1525,  1525]  
-    ]
+    ])
     
     ####################
     ### Source specs ###
     ####################
     
     tx_depth  = 500
-    frequency = 500
+    frequency = 5000
     
     beampattern = np.array([
         [-180,  10], [-170, -10], [-160,   0], [-150, -20], [-140, -10], [-130, -30],
@@ -69,7 +69,7 @@ if __name__ == '__main__':
     bottom_sdepth = [2500, 3000]
     bottom_srange = [0,   10000]
     
-    bottom_attenuation = [
+    bottom_absorption = [
         [10, 12],
         [15, 11]
     ]
@@ -95,7 +95,7 @@ if __name__ == '__main__':
         soundspeed_depth   = ssp_depth,
         bottom_soundspeed  = bottom_soundspeed,
         bottom_density     = bottom_density,
-        bottom_attenuation = bottom_attenuation,
+        bottom_absorption  = bottom_absorption,
         bottom_sdepth      = bottom_sdepth,        
         bottom_srange      = bottom_srange,
         frequency          = frequency,
