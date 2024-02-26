@@ -1,8 +1,6 @@
 import arlpy.uwapm as pm
 import numpy as np
 
-
-
 # Acousto-elastic boundary condition recommended values (GPT info not verified)
 #####################################################################################################################################################################################################
 # | Element            | Sound Speed (m/s) | Density (g/cm³) | P-wave Speed (m/s)  | S-wave Speed (m/s)  | P-wave Attn (dB/wavelength)  | S-wave Attn (dB/wavelength)  | Absorption (dB/wavelength) |
@@ -38,10 +36,7 @@ import numpy as np
 # | Wood               | 3500              | 0.65            | 3500                | 1750                | 0.0125                       | 0.0125                       | 0.0075                     |
 #####################################################################################################################################################################################################
 
-
 if __name__ == '__main__':
-
-    Title = "Example"
 
     ############
     ### Grid ###
@@ -50,39 +45,32 @@ if __name__ == '__main__':
     x = np.linspace(-15000, 15000, 1000)
     z = np.linspace(-15, 3100,  1000)
                     
-    
     ###############
     ### Surface ###
     ###############
     
     surfaceWaveHeight = 3 # m
     surfaceWaveLength = 7 # m
-    top_range      = np.array([-10000, 1000, 5000, 10000])
-    top_interface  = surfaceWaveHeight*np.sin(2*np.pi/surfaceWaveLength*top_range)
+    top_range         = np.array([-10000, 1000, 5000, 10000])
+    top_interface     = surfaceWaveHeight*np.sin(2*np.pi/surfaceWaveLength*top_range)
     
     #############
     ### Bathy ###
     #############
     
     bot_range     = np.array([-1000, -500, 5000, 7000, 10000])
-    bot_interface = np.array([2500, 500, 2800, 3000, 2700])
+    bot_interface = np.array([2500, 1900, 2800, 3000, 2700])
     
     ###################################
     ### Sound speed in water column ###
     ###################################
     
     ssp_range = np.array([-10000, 10000])
-    ssp_depth = np.array([500, 
-                          1000, 
-                          2000, 
-                          2500])
-    
-    ssp = np.array([
-        [1527,  1532],
-        [1430,  1400],
-        [1540,  1600], 
-        [1525,  1700]
-    ])
+    ssp_depth = np.array([500, 1000, 2000, 2500])
+    ssp       = np.array([[1527,  1532],
+                          [1430,  1400],
+                          [1540,  1600], 
+                          [1525,  1700]])
     
     ####################
     ### Source specs ###
@@ -93,20 +81,14 @@ if __name__ == '__main__':
     tx_angle = np.linspace(-180, 180 , 10)
     tx_level = 10*np.sin(2*np.pi*4*tx_angle/360)  
         
-    ##########################
-    ### Init Bellhop class ###
-    ##########################
-    
-    BELLHOP = pm.BELLHOP()
-    
     ####################
     ### Generate env ###
     ####################
     
-    BELLHOP.set_env(
+    env = pm.make_env2d(
         
-        name            = Title,
-        
+        name            = 'Example',
+
         mode            = 'coherent', 
         volume_attn     = 'Thorp',
         
@@ -116,17 +98,17 @@ if __name__ == '__main__':
         top_boundary    = 'vacuum',
         top_interface   = np.column_stack((top_range,top_interface)),          # m
         
-        ssp_range       = ssp_range[0],                                        # m
+        ssp_range       = ssp_range,                                           # m
         ssp_depth       = ssp_depth,                                           # m
-        ssp             = ssp[:,0],                                            # m/s
+        ssp             = ssp,                                                 # m/s
         ssp_interp      = 'c-linear',
         
         tx_freq         = tx_freq,                                             # Hz
         tx_depth        = tx_depth,                                            # m
         tx_beam         = np.column_stack((tx_angle,tx_level)),                # degree, dB
         tx_nbeams       = 0,                                                   # 0 = automatic
-        tx_minAngle     = -180,                                                #deg                         
-        tx_maxAngle     = 180,                                                 #deg
+        tx_minAngle     = -180,                                                # deg                         
+        tx_maxAngle     = 180,                                                 # deg
         
         bot_boundary    = 'acousto-elastic',
         bot_interface   = np.column_stack((bot_range,bot_interface)),          # m
@@ -146,6 +128,7 @@ if __name__ == '__main__':
     ### Compute and plot ###
     ########################
     
-    # Transmission Loss
+    BELLHOP = pm.BELLHOP()
+    BELLHOP.set_env(env)
     BELLHOP.compute_tranmission_loss(debug=True)
     BELLHOP.plot_transmission_loss()
