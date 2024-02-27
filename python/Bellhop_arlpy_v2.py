@@ -38,12 +38,12 @@ import numpy as np
 
 if __name__ == '__main__':
 
-    ############
-    ### Grid ###
-    ############    
+    ####################
+    ### Results grid ###
+    ####################
     
-    x = np.linspace(-15000, 15000, 1000)
-    z = np.linspace(-15, 3100,  1000)
+    x = np.linspace(-15000, 15000, 100)
+    z = np.linspace(-15, 3100,  100)
                     
     ###############
     ### Surface ###
@@ -87,6 +87,9 @@ if __name__ == '__main__':
     
     env = pm.make_env2d(
         
+        auto_xSettings  = True,                                    
+        auto_xBox       = True,                                                
+        
         name            = 'Example',
 
         mode            = 'coherent', 
@@ -121,14 +124,17 @@ if __name__ == '__main__':
         bot_PwaveSpeed  = 6000,                                                # m/s 
         bot_SwaveSpeed  = 3500,                                                # m/s 
         bot_PwaveAttn   = 0.02,                                                # dB/wavelength 
-        bot_SwaveAttn   = 0.02                                                 # dB/wavelength 
-)
+        bot_SwaveAttn   = 0.02,                                                # dB/wavelength 
+                
+        )
     
     ########################
     ### Compute and plot ###
     ########################
     
-    BELLHOP = pm.BELLHOP()
-    BELLHOP.set_env(env)
-    BELLHOP.compute_tranmission_loss(debug=True)
-    BELLHOP.plot_transmission_loss()
+    BELLHOP = pm.BELLHOP(env)
+    
+    tl      = BELLHOP.compute_tranmission_loss(debug=True)
+    fig, ax = BELLHOP.plot_transmission_loss()
+    
+    
