@@ -1,5 +1,6 @@
 import arlpy.uwapm as pm
 import numpy as np
+import matplotlib.pyplot as plt
 
 
 # Acousto-elastic boundary condition recommended values (GPT info not verified)
@@ -42,52 +43,50 @@ if __name__ == '__main__':
 
     Title = "Example"
 
-    ############
-    ### Grid ###
-    ############
+    ####################
+    ### Results grid ###
+    ####################
     
-    x = np.linspace(-15000, 15000, 10)
-    z = np.linspace(-50, 3500,  10)
-    
+    x = np.linspace(-10000, 15000, 1080)
+    z = np.linspace(-15, 3100,  720)
+                    
     ###############
     ### Surface ###
     ###############
     
     surfaceWaveHeight = 3 # m
     surfaceWaveLength = 7 # m
-    top_range      = x
-    top_interface  = surfaceWaveHeight*np.sin(2*np.pi/surfaceWaveLength*x)
+    top_range         = np.array([-10000, 1000, 5000, 10000])
+    top_interface     = surfaceWaveHeight*np.sin(2*np.pi/surfaceWaveLength*top_range)
     
     #############
     ### Bathy ###
     #############
     
-    bot_range     = np.array([x[0], -3000, 5000, 7000, x[-1]])
-    bot_interface = np.array([2500, 500, 2800, 3000, 2700])
+    bot_range     = np.array([-10000, -500, 5000, 7000, 10000])
+    bot_interface = np.array([2500, 1900, 2800, 3000, 2700])
 
     ###################################
     ### Sound speed in water column ###
     ###################################
     
-    ssp_depth = np.array([z[0], 1000, 2000, 2500, z[-1]])
-    ssp_range = np.array([0, 10000])
+    ###################################
+    ### Sound speed in water column ###
+    ###################################
     
-    ssp = np.array([
-        [1527,  1532],
-        [1400,  1400],
-        [1540,  1600], 
-        [1526,  1526],
-        [1525,  1525]  
-    ])
+    ssp_range = np.array([-10000, 10000])
+    ssp_depth = np.array([500, 1000, 2000, 2500])
+    ssp       = np.array([[1527,  1532],
+                          [1430,  1400],
+                          [1540,  1600], 
+                          [1525,  1700]])
     
     ####################
     ### Source specs ###
     ####################
     
-    tx_depth  = 500
-    tx_freq   = 500
-    tx_angle = np.linspace(-180, 180 , 10)
-    tx_level = 10*np.sin(2*np.pi*4*tx_angle/360)  
+    tx_depth  = 1000
+    tx_freq   = 200
     
     #######################
     ### Bottom settings ###
@@ -113,11 +112,12 @@ if __name__ == '__main__':
     ### Generate env ###
     ####################
     
-    env = pm.create_env2d(
+    env = pm.make_env2d(
+        
+        name            = Title,
         
         rx_depth        = z,
         rx_range        = x,  
-        
         
         top_interface   = np.column_stack((top_range,top_interface)),
         
@@ -135,22 +135,16 @@ if __name__ == '__main__':
 
         tx_freq         = tx_freq,
         tx_depth        = tx_depth,
-        tx_beam         = np.column_stack((tx_angle,tx_level)),
-
+        
+        mesh_computeBox = 'auto',
+        mesh_inputData  = 'auto',
     )
     
     ###############
     ### Compute ###
     ###############
     
-    tloss = pm.compute_transmission_loss(env)
+    RAM     = pm.RAM(env)
     
-    ############
-    ### Plot ###
-    ############
-    
-    pm.plot_transmission_loss(tloss, env, Title, vmin=-120, vmax=0)
-    pm.plot_soundspeed_map(env, Title, vmin=1400, vmax=1700)
-    pm.plot_absorption(env, Title)
-    pm.plot_density(env, Title)
-    pm.plot_beam(env, Title)
+    tl, vr, vz      = RAM.compute_transmission_loss(debug=True)
+    fig, ax         = RAM.plot_transmission_loss()

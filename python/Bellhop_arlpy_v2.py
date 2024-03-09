@@ -42,8 +42,8 @@ if __name__ == '__main__':
     ### Results grid ###
     ####################
     
-    x = np.linspace(-15000, 15000, 100)
-    z = np.linspace(-15, 3100,  100)
+    x = np.linspace(-10000, 15000, 1080)
+    z = np.linspace(-15, 3100,  720)
                     
     ###############
     ### Surface ###
@@ -51,14 +51,14 @@ if __name__ == '__main__':
     
     surfaceWaveHeight = 3 # m
     surfaceWaveLength = 7 # m
-    top_range         = np.array([-10000, 1000, 5000, 10000])
+    top_range         = np.array([-13000, 1000, 5000, 10000])
     top_interface     = surfaceWaveHeight*np.sin(2*np.pi/surfaceWaveLength*top_range)
     
     #############
     ### Bathy ###
     #############
     
-    bot_range     = np.array([-1000, -500, 5000, 7000, 10000])
+    bot_range     = np.array([-10000, -500, 5000, 7000, 10000])
     bot_interface = np.array([2500, 1900, 2800, 3000, 2700])
     
     ###################################
@@ -76,10 +76,10 @@ if __name__ == '__main__':
     ### Source specs ###
     ####################
     
-    tx_freq  = 5000
-    tx_depth = 500
-    tx_angle = np.linspace(-180, 180 , 10)
-    tx_level = 10*np.sin(2*np.pi*4*tx_angle/360)  
+    tx_freq  = 200
+    tx_depth = 1000
+    tx_angle = 0#np.linspace(-180, 180 , 10)
+    tx_level = 0#10*np.sin(2*np.pi*4*tx_angle/360)  
         
     ####################
     ### Generate env ###
@@ -87,8 +87,8 @@ if __name__ == '__main__':
     
     env = pm.make_env2d(
         
-        auto_xSettings  = True,                                    
-        auto_xBox       = True,                                                
+        mesh_inputData  = 'auto', 
+        mesh_computeBox = 'auto',                                               
         
         name            = 'Example',
 
@@ -125,7 +125,9 @@ if __name__ == '__main__':
         bot_SwaveSpeed  = 3500,                                                # m/s 
         bot_PwaveAttn   = 0.02,                                                # dB/wavelength 
         bot_SwaveAttn   = 0.02,                                                # dB/wavelength 
-                
+            
+        # Compute box size
+        
         )
     
     ########################
@@ -136,5 +138,4 @@ if __name__ == '__main__':
     
     tl      = BELLHOP.compute_tranmission_loss(debug=True)
     fig, ax = BELLHOP.plot_transmission_loss()
-    
     
