@@ -67,8 +67,8 @@ if __name__ == '__main__':
     
     ssp_range = np.array([-10000, 2500, 5000])
     ssp_depth = np.array([500, 1000, 2000, 2500])
-    ssp       = np.array([[1527,  1532, 1500],
-                          [1430,  1200, 1500],
+    ssp       = np.array([[1200,  1532, 1500],
+                          [1430,  1200, 1200],
                           [1540,  1300, 1200], 
                           [1525,  1700, 1500]])
     
@@ -76,8 +76,8 @@ if __name__ == '__main__':
     ### Source specs ###
     ####################
     
-    tx_freq  = 200
-    tx_depth = 1000
+    tx_freq  = 25
+    tx_depth = 250
     tx_angle = 0#np.linspace(-180, 180 , 10)
     tx_level = 0#10*np.sin(2*np.pi*4*tx_angle/360)  
         
@@ -87,8 +87,7 @@ if __name__ == '__main__':
     
     env = pm.make_env2d(
         
-        mesh_inputData  = 'auto', 
-        mesh_computeBox = 'auto',                                               
+        pad_inputData   = True, 
         
         name            = 'Example',
 
@@ -108,7 +107,7 @@ if __name__ == '__main__':
         
         tx_freq         = tx_freq,                                             # Hz
         tx_depth        = tx_depth,                                            # m
-        tx_beam         = np.column_stack((tx_angle,tx_level)),                # degree, dB
+        #tx_beam         = np.column_stack((tx_angle,tx_level)),                # degree, dB
         tx_nbeams       = 0,                                                   # 0 = automatic
         tx_minAngle     = -180,                                                # deg                         
         tx_maxAngle     = 180,                                                 # deg
@@ -138,4 +137,5 @@ if __name__ == '__main__':
     
     tl      = BELLHOP.compute_tranmission_loss(debug=True)
     fig, ax = BELLHOP.plot_transmission_loss()
+    BELLHOP.plot_ssp()
     

@@ -76,8 +76,8 @@ if __name__ == '__main__':
     
     ssp_range = np.array([-10000, 2500, 5000])
     ssp_depth = np.array([500, 1000, 2000, 2500])
-    ssp       = np.array([[1527,  1532, 1500],
-                          [1430,  1200, 1500],
+    ssp       = np.array([[1200,  1532, 1500],
+                          [1430,  1200, 1200],
                           [1540,  1300, 1200], 
                           [1525,  1700, 1500]])
     
@@ -85,8 +85,8 @@ if __name__ == '__main__':
     ### Source specs ###
     ####################
     
-    tx_depth  = 1000
-    tx_freq   = 200
+    tx_freq   = 25
+    tx_depth  = 250
     
     #######################
     ### Bottom settings ###
@@ -136,8 +136,7 @@ if __name__ == '__main__':
         tx_freq         = tx_freq,
         tx_depth        = tx_depth,
         
-        mesh_computeBox = 'auto',
-        mesh_inputData  = 'auto',
+        pad_inputData   = True,
     )
     
     ###############
@@ -146,5 +145,5 @@ if __name__ == '__main__':
     
     RAM     = pm.RAM(env)
     
-    tl, vr, vz      = RAM.compute_transmission_loss(debug=True)
-    fig, ax         = RAM.plot_transmission_loss()
+    tl        = RAM.compute_transmission_loss(debug=True)
+    fig, ax   = RAM.plot_transmission_loss()
