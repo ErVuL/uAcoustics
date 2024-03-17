@@ -131,9 +131,10 @@ Or:
 | Add plot PSD func in dB re 1uPa/vHz for rec signals  | Done        |
 | Use matplotlib for uwapm plots                       | Done        |
 | Add pyram to arlpy                                   | Done (beta) |
+| Redefine class for simpler call and separate env     | Done        |
 | Add kraken to arlpy                                  | In progress |
-| Redefine class for simpler call and separate env     | In progress |
-| Update plots for Kraken                              | Not started |
+| Create Jupyter notebooks tutorials for each model    | In progress |
+| Totally remove pandas                                | Not started |
 | Make a simple installation process for venv          | Not started |
 | Add requirements.txt file for pip                    | Not started |
 | Remove pyat from the project                         | Not started |
@@ -145,7 +146,6 @@ Or:
 | Add Krakenc to arlpy                                 | Not started |
 | Maintain up to date unittest and assert in arlpy     | Not started |
 | Maintain up to date function and class comments      | Not started |
-| Create Jupyter notebooks tutorials for each model    | Not started |
 | Add earthquakes and explosions to Wenz model         | Not started |
 | Consider Windows compatibility                       | Not started |
 | ...                                                  | ...         |
