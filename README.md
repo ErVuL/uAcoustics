@@ -38,17 +38,16 @@ The acoustic toolbox from OALIB is in fortran, the installation is done in ***/o
     make all
     make install
 
-you may have to "sudo" some commands but avoid it if not necessary.
+you may have to "sudo" some commands but avoid it if not necessary. If you choose to install the acoustic toolbox somewhere else, you will have to modify ***uAcoustics/python/arlpy/arlpy/uwapm.py*** specifying your installation path by editing the line:
+
+    # Add acoustic toolbox path to Python path
+    os.environ['PATH'] = os.environ['PATH'].replace(':/opt/build/at/bin', '')+":/opt/build/at/bin"
+
 Add binaries to your ***$PATH*** by editing your ***./bashrc*** (or ***./profile*** or ***./bashprofile***) and adding the following line:
 
     export PATH="/opt/build/at/bin:$PATH"
 
-This allows your shell to find fortran executable files.\
-*In Spyder or some other IDEs you may have to add:*
-
-    os.environ['PATH'] = os.environ['PATH'].replace(':/opt/build/at/bin', '')+":/opt/build/at/bin"
-    
-*at the beginning of your code to import the fortran binaries to your IDE's environment.*
+This allows your shell to find fortran executable files.
 
 ### Python
 
@@ -68,7 +67,7 @@ Add the ***pyat***, ***pyram***, ***utm*** and ***arlpy*** directories to your *
     export PYTHONPATH="<installationPath>/uAcoustics/python/utm:$PYTHONPATH"
 
 to the end of your ***./bashrc*** (or ***./profile*** or ***./bashprofile***).\
-*For Spyder or IDEs you may have to add them to the IDE's ***$PYTHONPATH***.*\
+*For Spyder or IDEs you may have to add them to the IDE's ***$PYTHONPATH***.*
 
 ## Update
   
@@ -97,7 +96,7 @@ Then if necessary, update and compile the oalib source code with:
 
 Remove main folders and dependencies:
 
-    rm -rf <installationPath>/uAcoustics/
+    rm -rf <installationPath>/uAcoustics
     rm -rf /opt/build/at
     sudo apt remove -y git texlive-base gfortran cmake
     
@@ -126,22 +125,32 @@ Or:
 | Simplify acoustic env() in arlpy                     | Done        |
 | Make a simple installation process                   | Done        |
 | Compatibility with Spyder                            | Done        |
+| Add BSD 3 license                                    | Done        |
 | Add basic plots                                      | Done        |
 | Add Wenz curves simulator                            | Done        |
 | Add plot PSD func in dB re 1uPa/vHz for rec signals  | Done        |
 | Use matplotlib for uwapm plots                       | Done        |
 | Add pyram to arlpy                                   | Done (beta) |
 | Add kraken to arlpy                                  | In progress |
-| Manage all options for Bellhop, Kraken and RAM       | Not started |
+| Redefine class for simpler call and separate env     | In progress |
+| Update plots for Kraken                              | Not started |
+| Make a simple installation process for venv          | Not started |
+| Add requirements.txt file for pip                    | Not started |
+| Remove pyat from the project                         | Not started |
+| Add common sound profile plot                        | Not started |
 | Add spectro func in dB re 1uPa/vHz for rec signals   | Not started |
 | Add statistical spectrogram in dB re 1uPa/vHz        | Not started |
 | Add channel simulator filter using IR ?              | Not started |
-| Add earthquakes and explosions to Wenz model         | Not started |
+| Manage all options for Bellhop, Kraken and RAM       | Not started |
+| Add Krakenc to arlpy                                 | Not started |
 | Maintain up to date unittest and assert in arlpy     | Not started |
+| Maintain up to date function and class comments      | Not started |
+| Create Jupyter notebooks tutorials for each model    | Not started |
+| Add earthquakes and explosions to Wenz model         | Not started |
+| Consider Windows compatibility                       | Not started |
 | ...                                                  | ...         |
 | Add scooter to arlpy                                 | Not started |
 | Add sparc to arlpy                                   | Not started |
-| Add krakel to arlpy                                  | Not started |
 | Consider using c++ version of bellhop                | Not started |
 
 ## Some results
