@@ -131,9 +131,10 @@ Or:
 | Add plot PSD func in dB re 1uPa/vHz for rec signals  | Done        |
 | Use matplotlib for uwapm plots                       | Done        |
 | Add pyram to arlpy                                   | Done (beta) |
+| Redefine class for simpler call and separate env     | Done        |
 | Add kraken to arlpy                                  | In progress |
-| Redefine class for simpler call and separate env     | In progress |
-| Update plots for Kraken                              | Not started |
+| Create Jupyter notebooks tutorials for each model    | In progress |
+| Totally remove pandas                                | Not started |
 | Make a simple installation process for venv          | Not started |
 | Add requirements.txt file for pip                    | Not started |
 | Remove pyat from the project                         | Not started |
@@ -145,7 +146,6 @@ Or:
 | Add Krakenc to arlpy                                 | Not started |
 | Maintain up to date unittest and assert in arlpy     | Not started |
 | Maintain up to date function and class comments      | Not started |
-| Create Jupyter notebooks tutorials for each model    | Not started |
 | Add earthquakes and explosions to Wenz model         | Not started |
 | Consider Windows compatibility                       | Not started |
 | ...                                                  | ...         |
@@ -155,21 +155,7 @@ Or:
 
 ## Some results
 
-Results obtain with examples available in the ***/python*** directory.
-
-![wenz](https://github.com/ErVuL/uAcoustics/assets/45111151/9e001713-7a1d-492d-9d07-1e01193e2164)
-![ssp](https://github.com/ErVuL/uAcoustics/assets/45111151/9f8a9d6c-974b-4273-a5a8-6383a5d7c0f9)
-![ray](https://github.com/ErVuL/uAcoustics/assets/45111151/4f4ea814-f96d-4786-a976-214a6176e040)
-![ram](https://github.com/ErVuL/uAcoustics/assets/45111151/5ab3c9d0-b4ce-4754-a7be-d953259d53e5)
-![polar](https://github.com/ErVuL/uAcoustics/assets/45111151/8c9b0d44-f417-4b05-84c7-13dfb0edd3b2)
-![mod](https://github.com/ErVuL/uAcoustics/assets/45111151/e8cc6c27-2aeb-4afa-8839-b55d4fcdb9d1)
-![kraken](https://github.com/ErVuL/uAcoustics/assets/45111151/d8336307-ce87-46f5-85ce-1a9e58307b0a)
-![ir](https://github.com/ErVuL/uAcoustics/assets/45111151/1fdf2738-8048-4201-8a10-3fffbc7819fe)
-![density](https://github.com/ErVuL/uAcoustics/assets/45111151/e561baf9-ec67-4d4d-aa54-feb5b12660fb)
-![bellhop](https://github.com/ErVuL/uAcoustics/assets/45111151/56e2462e-b0f3-4754-b208-2bf3e4684e7d)
-![attn](https://github.com/ErVuL/uAcoustics/assets/45111151/1576fad2-35cc-48de-95f0-4fe8d8d7a2d9)
-![arrivals](https://github.com/ErVuL/uAcoustics/assets/45111151/55c363f4-d8d4-4860-a6cc-8d51c55afd32)
-
+Some results are availables in the jupyter notebooks located in ***/python***.
 
 ## About
 

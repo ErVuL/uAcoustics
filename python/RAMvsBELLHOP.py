@@ -132,7 +132,7 @@ if __name__ == '__main__':
         bot_depth       = bot_xdepth,
         bot_ssp         = bot_ssp,
         bot_density     = bot_density,
-        bot_attenuation = bot_attenuation,
+        bot_attn        = bot_attenuation,
         )
     
     ########################
@@ -143,15 +143,15 @@ if __name__ == '__main__':
     RAM     = pm.RAM(env, cp=True)
     RAM.plot_bot_density()
     RAM.plot_bot_attn()
-    RAM.plot_raw_ssp()
+    RAM.plot_ssp()
   
     RAM.compute_transmission_loss()
     RAM.plot_transmission_loss()
-    RAM.plot_raw_ssp(vmin=1000, vmax=2000)
+    RAM.plot_ssp(vmin=1000, vmax=2000)
     
     BELLHOP.compute_transmission_loss()
     BELLHOP.plot_transmission_loss()
-    BELLHOP.plot_raw_ssp(vmin=1000, vmax=2000)
+    BELLHOP.plot_ssp(vmin=1000, vmax=2000)
     
     env['rx_range'] = 10000
     env['rx_depth'] = 1000
@@ -169,4 +169,3 @@ if __name__ == '__main__':
 
     BELLHOP.compute_eigen_rays()
     BELLHOP.plot_eigen_rays(number=8)     
-    """
