@@ -1,4 +1,4 @@
-# Acoustic medias specifications (from LLM, need verfification)
+# Acoustic medias specifications (from LLM, need verification)
 
 
 | Verified | Element            | Sound Speed (m/s) | Density (g/cm³) | P-wave Speed (m/s)  | S-wave Speed (m/s)  | P-wave Attn (dB/wavelength)  | S-wave Attn (dB/wavelength)  | Absorption (dB/wavelength) |
