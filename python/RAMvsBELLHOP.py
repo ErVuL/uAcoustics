@@ -109,7 +109,7 @@ if __name__ == '__main__':
         
         # BELLHOP: Source directivity
         tx_beam         = np.column_stack((tx_angle,tx_level)),                # degree, dB
-        tx_nbeams       = 0,                                                   # 0 = automatic
+        tx_nbeam        = 0,                                                   # 0 = automatic
         tx_minAngle     = -180,                                                # deg                         
         tx_maxAngle     = 180,                                                 # deg
 
@@ -122,17 +122,15 @@ if __name__ == '__main__':
 
         # OALIB: Acousto-elastic bottom boundary 
         attn_unit       = 'dB/wavelength',
-        bot_PwaveSpeed  = 6000,                                                # m/s 
         bot_SwaveSpeed  = 3500,                                                # m/s 
-        bot_PwaveAttn   = 0.02,                                                # dB/wavelength 
+        bot_PwaveAttn   = bot_attenuation,                                                # dB/wavelength 
         bot_SwaveAttn   = 0.02,                                                # dB/wavelength 
             
         # RAM: Bottom settings   
         bot_range       = bot_xrange,
         bot_depth       = bot_xdepth,
-        bot_ssp         = bot_ssp,
+        bot_PwaveSpeed  = bot_ssp,
         bot_density     = bot_density,
-        bot_attn        = bot_attenuation,
         )
     
     ########################
@@ -140,6 +138,7 @@ if __name__ == '__main__':
     ########################
     
     BELLHOP = pm.BELLHOP(env, cp=True)
+    
     RAM     = pm.RAM(env, cp=True)
     RAM.plot_bot_density()
     RAM.plot_bot_attn()
@@ -149,7 +148,7 @@ if __name__ == '__main__':
     RAM.plot_transmission_loss()
     RAM.plot_ssp(vmin=1000, vmax=2000)
     
-    BELLHOP.compute_transmission_loss()
+    tl = BELLHOP.compute_transmission_loss()
     BELLHOP.plot_transmission_loss()
     BELLHOP.plot_ssp(vmin=1000, vmax=2000)
     
