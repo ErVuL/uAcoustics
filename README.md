@@ -132,7 +132,7 @@ Or:
 | Use matplotlib for uwapm plots                       | Done        |
 | Add pyram to arlpy                                   | Done (beta) |
 | Redefine class for simpler call and separate env     | Done        |
-| Add kraken to arlpy                                  | In progress |
+| Add kraken to arlpy                                  | Done (beta) |
 | Create Jupyter notebooks tutorials for each model    | In progress |
 | Totally remove pandas                                | Not started |
 | Make a simple installation process for venv          | Not started |
@@ -142,10 +142,10 @@ Or:
 | Add spectro func in dB re 1uPa/vHz for rec signals   | Not started |
 | Add statistical spectrogram in dB re 1uPa/vHz        | Not started |
 | Add channel simulator filter using IR ?              | Not started |
-| Manage all options for Bellhop, Kraken and RAM       | Not started |
+| Manage all options for Bellhop, Kraken and RAM       | In progress |
 | Add Krakenc to arlpy                                 | Not started |
 | Maintain up to date unittest and assert in arlpy     | Not started |
-| Maintain up to date function and class comments      | Not started |
+| Maintain up to date function and class comments      | In progress |
 | Add earthquakes and explosions to Wenz model         | Not started |
 | Consider Windows compatibility                       | Not started |
 | ...                                                  | ...         |
