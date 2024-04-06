@@ -3,12 +3,6 @@
 
 import arlpy.uwapm as pm
 import numpy as np
-import os 
-import matplotlib.pyplot as plt
-from matplotlib import rc
-os.environ['PATH'] = os.environ['PATH'].replace(':/opt/build/at/bin', '')+":/opt/build/at/bin"
-rc('font',**{'family':'sans-serif','sans-serif':['Helvetica']})
-rc('text', usetex=True)
 
 
 if __name__ == '__main__':
@@ -46,4 +40,3 @@ if __name__ == '__main__':
     # Plot
     ######
     pm.plot_wenz(Fxx, NL, wind_speed, rain_rate, water_depth, shipping_level)
-    plt.show()
