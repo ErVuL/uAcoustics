@@ -7,8 +7,8 @@ if __name__ == '__main__':
     ### Results grid ###
     ####################
     
-    x = np.linspace(-7500, 15000, 1080)
-    z = np.linspace(-15, 3100,  720)
+    x = np.linspace(0, 15000, 2048)
+    z = np.linspace(-15, 3100,  2048)
                     
     ###############
     ### Surface ###
@@ -24,7 +24,7 @@ if __name__ == '__main__':
     #############
     
     bot_range     = np.array([-10000, -500, 5000, 7000, 10000])
-    bot_interface = np.array([2000, 1000, 3000, 2000, 1500])
+    bot_interface = np.array([2000, 2000, 2800, 1000, 2500])
     
     ###################################
     ### Sound speed in water column ###
@@ -48,11 +48,8 @@ if __name__ == '__main__':
     ### Source specs ###
     ####################
     
-    tx_freq  = 50
-    tx_depth = 250
-    tx_angle = np.linspace(-180, 180 , 10)
-    tx_level = 10*np.sin(2*np.pi*4*tx_angle/360)  
- 
+    tx_freq  = 100
+    tx_depth = 500 
 
     #######################
     ### Bottom settings ###
@@ -106,12 +103,6 @@ if __name__ == '__main__':
         # ALL: Source freq and depth
         tx_freq         = tx_freq,                                             # Hz
         tx_depth        = tx_depth,                                            # m
-        
-        # BELLHOP: Source directivity
-        tx_beam         = np.column_stack((tx_angle,tx_level)),                # degree, dB
-        tx_nbeam        = 0,                                                   # 0 = automatic
-        tx_minAngle     = -180,                                                # deg                         
-        tx_maxAngle     = 180,                                                 # deg
 
         # ALL: Bottom interface
         bot_interface   = np.column_stack((bot_range,bot_interface)),          # m
@@ -157,7 +148,7 @@ if __name__ == '__main__':
     env = pm.make_env2d(**env)
     BELLHOP.set_env(env, cp=True)
 
-    BELLHOP.compute_impulse_respsonse(fs=24000, nArrivals=10)
+    BELLHOP.compute_impulse_respsonse(fs=24000, nArrival=10)
     BELLHOP.plot_impulse_response() 
     
     BELLHOP.compute_arrivals()
